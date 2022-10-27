@@ -9,17 +9,15 @@ public class Films implements Parcelable {
     private String name;
     private String description;
     private Date releaseD;
-    private int ticketPrice;
     private int filmAva;
     private float rating;
     private boolean isFavor;
 
 
-    public Films(String name, String description, Date releaseD, int ticketPrice, int filmAva, float rating, boolean isFavor) {
+    public Films(String name, String description, Date releaseD, int filmAva, float rating, boolean isFavor) {
         this.name = name;
         this.description = description;
         this.releaseD = releaseD;
-        this.ticketPrice = ticketPrice;
         this.filmAva = filmAva;
         this.rating = rating;
         this.isFavor = isFavor;
@@ -34,7 +32,6 @@ public class Films implements Parcelable {
         name = in.readString();
         description = in.readString();
         releaseD = (Date) in.readValue(Date.class.getClassLoader());
-        ticketPrice = in.readInt();
         filmAva = in.readInt();
         rating = in.readFloat();
     }
@@ -83,7 +80,6 @@ public class Films implements Parcelable {
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", releaseD=" + releaseD +
-                ", ticketPrice=" + ticketPrice +
                 ", filmAva=" + filmAva +
                 ", rating=" + rating +
                 ", isFavor=" + isFavor +
@@ -94,13 +90,6 @@ public class Films implements Parcelable {
         return releaseD;
     }
 
-    public int getTicketPrice() {
-        return ticketPrice;
-    }
-
-    public void setTicketPrice(int ticketPrice) {
-        this.ticketPrice = ticketPrice;
-    }
 
     public int getFilmAva() {
         return filmAva;
@@ -127,7 +116,6 @@ public class Films implements Parcelable {
         parcel.writeString(name);
         parcel.writeString(description);
         parcel.writeValue(releaseD);
-        parcel.writeInt(ticketPrice);
         parcel.writeInt(filmAva);
         parcel.writeFloat(rating);
     }
