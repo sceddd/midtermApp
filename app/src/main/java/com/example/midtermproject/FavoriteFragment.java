@@ -58,10 +58,15 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
     @Override
     public void onClickView(int pos) {
         Intent intent = new Intent(getContext(), DisplayFilmInfo.class);
+        intent.putExtra("NAME", favorFilms.get(pos).getName());
+        intent.putExtra("DESCRIPTION", favorFilms.get(pos).getDescription());
+        intent.putExtra("AVA", favorFilms.get(pos).getFilmAva());
+        startActivity(intent);
     }
 
     @Override
     public void onHeartClick(int pos,boolean isFavor) {
+
     }
 
     @Override

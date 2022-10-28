@@ -3,6 +3,7 @@
     <string name="app_name">MidtermProject</string>
     <string name="nav_home">Home</string>
     <string name="nav_favorite">Favorite</string>
+    <string name="nav_search">Search</string>
     <string-array name="films">
         <item>Adventure time</item>
         <item>World of Warcraft III</item>
@@ -13,11 +14,6 @@
         <item>8/12/2019</item>
         <item>3/10/2022</item>
     </string-array>
-    <integer-array name="ticketPrice">
-        <item>30</item>
-        <item>30</item>
-        <item>40</item>
-    </integer-array>
     <string-array name="description">
         <item>Friendship,Adventure</item>
         <item>War,Action</item>

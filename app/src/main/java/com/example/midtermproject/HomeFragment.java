@@ -75,7 +75,6 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
         intent.putExtra("NAME", films.get(pos).getName());
         intent.putExtra("DESCRIPTION", films.get(pos).getDescription());
         intent.putExtra("AVA", films.get(pos).getFilmAva());
-        intent.putExtra("RELEASED",films.get(pos).getReleaseD());
         startActivity(intent);
     }
     public void setFavorites(ArrayList<Films> favorites) {

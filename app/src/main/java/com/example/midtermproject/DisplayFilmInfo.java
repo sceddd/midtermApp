@@ -19,21 +19,15 @@ public class DisplayFilmInfo extends AppCompatActivity {
         String name = getIntent().getStringExtra("NAME");
         String description = getIntent().getStringExtra("DESCRIPTION");
         String rating = getIntent().getStringExtra("RATING");
-        Date dayRelease;
-        int filmAva;
-        try {
-            dayRelease = new SimpleDateFormat("dd/MM/yyyy").parse(getIntent().getStringExtra("RELEASED"));
-            filmAva = getIntent().getIntExtra("AVA", 0);
-        }
-        catch (ParseException e) {
-            e.printStackTrace();
-        }
+//        int filmAva = getIntent().getIntExtra("AVA", 0);
 
         TextView nameTv = findViewById(R.id.txtName);
         TextView descriptionTv = findViewById(R.id.txtDescription);
         TextView ratingTv = findViewById(R.id.txtRating);
-        nameTv.setText(name);
 
+        nameTv.setText(name);
+        descriptionTv.setText(description);
+        ratingTv.setText(rating);
     }
 
 }

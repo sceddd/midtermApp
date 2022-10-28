@@ -8,16 +8,14 @@ import java.util.Date;
 public class Films implements Parcelable {
     private String name;
     private String description;
-    private Date releaseD;
     private int filmAva;
     private float rating;
     private boolean isFavor;
 
 
-    public Films(String name, String description, Date releaseD, int filmAva, float rating, boolean isFavor) {
+    public Films(String name, String description, int filmAva, float rating, boolean isFavor) {
         this.name = name;
         this.description = description;
-        this.releaseD = releaseD;
         this.filmAva = filmAva;
         this.rating = rating;
         this.isFavor = isFavor;
@@ -31,7 +29,6 @@ public class Films implements Parcelable {
     private void readFromParcel(Parcel in) {
         name = in.readString();
         description = in.readString();
-        releaseD = (Date) in.readValue(Date.class.getClassLoader());
         filmAva = in.readInt();
         rating = in.readFloat();
     }
@@ -62,10 +59,6 @@ public class Films implements Parcelable {
         this.description = description;
     }
 
-    public void setReleaseD(Date releaseD) {
-        this.releaseD = releaseD;
-    }
-
     public String getName() {
         return name;
     }
@@ -79,16 +72,12 @@ public class Films implements Parcelable {
         return "Films{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", releaseD=" + releaseD +
                 ", filmAva=" + filmAva +
                 ", rating=" + rating +
                 ", isFavor=" + isFavor +
                 '}';
     }
 
-    public Date getReleaseD() {
-        return releaseD;
-    }
 
 
     public int getFilmAva() {
@@ -115,7 +104,6 @@ public class Films implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
         parcel.writeString(description);
-        parcel.writeValue(releaseD);
         parcel.writeInt(filmAva);
         parcel.writeFloat(rating);
     }

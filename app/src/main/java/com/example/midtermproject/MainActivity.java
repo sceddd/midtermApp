@@ -32,13 +32,12 @@ public class MainActivity extends AppCompatActivity{
         HomeFragment hFragment = new HomeFragment();
         hFragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, hFragment).commit();
-        bottomNavigationView.setSelectedItemId(R.id.nav_home);
+
         bottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment fragment = new Fragment();
             switch (item.getItemId()){
                 case R.id.nav_home:
                     hFragment.setFavorites(favorFilms);
-                    Log.d("abc",array2string(hFragment.getFavorites()));
                     fragment = hFragment;
                     break;
                 case R.id.nav_favorite:
@@ -47,38 +46,25 @@ public class MainActivity extends AppCompatActivity{
                     bundle.putParcelableArrayList("favor",favorFilms);
                     fragment.setArguments(bundle);
                     break;
+                case R.id.nav_search:
+                    fragment = new SearchFragment();
+                    fragment.setArguments(bundle);
+                    break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.main_container, fragment).commit();
             return true;
         });
     }
-    @SuppressLint("SimpleDateFormat")
+
     private void setUpFilms() {
-        try {
-            String[] name = getResources().getStringArray(R.array.films);
-            String[] description = getResources().getStringArray(R.array.description);
-            int[] ticketPrice = getResources().getIntArray(R.array.ticketPrice);
-            String[] rating = getResources().getStringArray(R.array.rating);
-            for (int i = 0; i < name.length; i++) {
-                Date date = new SimpleDateFormat("dd/MM/yyyy").parse(getResources().getStringArray(R.array.dayRelease)[i]);
-                films.add(new Films(name[i], description[i], date, ticketPrice[i], filmsAva, Float.parseFloat(rating[i]), false));
-            }
-            films.sort((a, b) -> Float.compare(b.getRating(),a.getRating()));
+        String[] name = getResources().getStringArray(R.array.films);
+        String[] description = getResources().getStringArray(R.array.description);
+        String[] rating = getResources().getStringArray(R.array.rating);
+        for (int i = 0; i < name.length; i++) {
+            films.add(new Films(name[i], description[i], filmsAva, Float.parseFloat(rating[i]), false));
+        }
+        films.sort((a, b) -> Float.compare(b.getRating(),a.getRating()));
 //            films.sort((a, b) -> Float.compare(a.getRating(),b.getRating()));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
-    public String array2string(ArrayList<Films> val) {
-        if (val == null) {
-            return null;
-        }
-        String string = "Bundle{";
-        for (Films key : val) {
-            string += " " + key + ";";
-        }
-        string += " }Bundle";
-        return string;
     }
 
 }
