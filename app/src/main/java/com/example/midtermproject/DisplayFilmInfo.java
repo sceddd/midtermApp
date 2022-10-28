@@ -19,7 +19,7 @@ public class DisplayFilmInfo extends AppCompatActivity {
         String name = getIntent().getStringExtra("NAME");
         String description = getIntent().getStringExtra("DESCRIPTION");
         String rating = getIntent().getStringExtra("RATING");
-//        int filmAva = getIntent().getIntExtra("AVA", 0);
+        int filmAva = getIntent().getIntExtra("AVA", 0);
 
         TextView nameTv = findViewById(R.id.txtName);
         TextView descriptionTv = findViewById(R.id.txtDescription);

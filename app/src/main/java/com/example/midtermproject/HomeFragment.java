@@ -89,6 +89,5 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
             films.get(pos).setFavor(false);
             favorFilms.remove(films.get(pos));
         }
-
     }
 }

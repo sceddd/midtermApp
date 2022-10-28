@@ -33,7 +33,6 @@ public class Films implements Parcelable {
         rating = in.readFloat();
     }
 
-
     public static final Parcelable.Creator<Films> CREATOR = new Parcelable.Creator<Films>() {
         public Films createFromParcel(Parcel in) {
             return new Films(in);
@@ -45,12 +44,15 @@ public class Films implements Parcelable {
         }
 
     };
+
     public float getRating() {
         return rating;
     }
+
     public boolean isFavorite() {
         return isFavor;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -79,7 +81,6 @@ public class Films implements Parcelable {
     }
 
 
-
     public int getFilmAva() {
         return filmAva;
     }
@@ -95,6 +96,7 @@ public class Films implements Parcelable {
     public void setFilmAva(int filmAva) {
         this.filmAva = filmAva;
     }
+
     @Override
     public int describeContents() {
         return 0;

@@ -10,9 +10,22 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="409dp"
         android:layout_height="643dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/filmsView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:paddingTop="70dp"
+        />
+    <EditText
+        android:id="@+id/edit_text_name"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_margin="12dp"
+        android:layout_marginTop="16dp"
+        android:autofillHints="Avatar"
+        android:background="@drawable/rounded_corner"
+        android:drawableStart="@drawable/ic_baseline_search"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="@string/movie_name"
+        android:inputType="textLongMessage|textMultiLine|textPersonName"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp" />
 </FrameLayout>
