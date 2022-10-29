@@ -73,6 +73,7 @@ public class FilmsViewAdapter extends RecyclerView.Adapter<FilmsViewAdapter.MyVi
                 if(filmsViewInterface!=null) {
                     int pos = getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION) {
+                        Log.d("TAG", "MyViewHolder: "+ (pos));
                         filmsViewInterface.onClickView(pos);
                     }
                 }
@@ -80,6 +81,7 @@ public class FilmsViewAdapter extends RecyclerView.Adapter<FilmsViewAdapter.MyVi
             itemView.setOnLongClickListener(v->{
                 if(filmsViewInterface!=null) {
                     int pos = getAdapterPosition();
+                    Log.d("Long", "Long: "+ (pos));
                     if (pos != RecyclerView.NO_POSITION) {
                         filmsViewInterface.onLongClickView(pos);
                     }

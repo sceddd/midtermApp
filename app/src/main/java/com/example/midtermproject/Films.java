@@ -20,12 +20,6 @@ public class Films implements Parcelable {
         this.link = link;
     }
 
-
-
-
-
-
-
     public void setRating(float rating) {
         this.rating = rating;
     }

@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity{
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, hFragment).commit();
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
+            bundle.putParcelableArrayList("films",films);
             fragment = new Fragment();
             switch (item.getItemId()){
                 case R.id.nav_home:
@@ -79,6 +80,9 @@ public class MainActivity extends AppCompatActivity{
         rotateBackward = AnimationUtils.loadAnimation(this, R.anim.rotate_backward);
 
         fabMore.setOnClickListener(view -> animateFab());
+    }
+    public void updateFavor(Films pos){
+        films.get(films.indexOf(pos)).setFavor(false);
     }
     private void animateFab() {
         if (isOpen){

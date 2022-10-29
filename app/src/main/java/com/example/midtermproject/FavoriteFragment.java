@@ -20,7 +20,6 @@ import java.util.ArrayList;
 public class FavoriteFragment extends Fragment implements FilmsViewInterface{
     FilmsViewAdapter fVA;
     private ArrayList<Films> favorFilms;
-
     public FavoriteFragment() {
         // Required empty public constructor
     }
@@ -71,10 +70,16 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
 
     @Override
     public ArrayList<Films> getFavorites() {
-        return null;
+        return favorFilms;
     }
 
     @Override
     public void onLongClickView(int pos) {
+        ((MainActivity)getActivity()).updateFavor(favorFilms.get(pos));
+        favorFilms.remove(pos);
+        if(getArguments()!=null)
+            getArguments().putParcelableArrayList("favor",favorFilms);
+        Log.d("position",String.valueOf(pos));
+        fVA.notifyItemRemoved(pos);
     }
 }
