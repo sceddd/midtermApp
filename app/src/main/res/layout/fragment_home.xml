@@ -8,8 +8,8 @@
     android:background="@color/rose">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="409dp"
-        android:layout_height="643dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/filmsView"
         android:paddingTop="70dp"
         />
