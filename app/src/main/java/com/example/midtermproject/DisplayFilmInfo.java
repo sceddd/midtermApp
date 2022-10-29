@@ -2,6 +2,7 @@ package com.example.midtermproject;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,11 +21,14 @@ public class DisplayFilmInfo extends AppCompatActivity {
         String description = getIntent().getStringExtra("DESCRIPTION");
         String rating = getIntent().getStringExtra("RATING");
         int filmAva = getIntent().getIntExtra("AVA", 0);
+        String link = getIntent().getStringExtra("LINK");
 
         TextView nameTv = findViewById(R.id.txtName);
         TextView descriptionTv = findViewById(R.id.txtDescription);
         TextView ratingTv = findViewById(R.id.txtRating);
+        ImageView imageView = findViewById(R.id.imgPoster);
 
+        imageView.setImageResource(filmAva);
         nameTv.setText(name);
         descriptionTv.setText(description);
         ratingTv.setText(rating);

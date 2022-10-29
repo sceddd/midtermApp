@@ -48,6 +48,7 @@ public class FilmsViewAdapter extends RecyclerView.Adapter<FilmsViewAdapter.MyVi
         holder.heartClick.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
     }
 
+
     @Override
     public int getItemCount() {
         return films.size();

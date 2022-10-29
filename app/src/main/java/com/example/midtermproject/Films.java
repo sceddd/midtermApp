@@ -3,22 +3,33 @@ package com.example.midtermproject;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Date;
-
 public class Films implements Parcelable {
     private String name;
     private String description;
     private int filmAva;
     private float rating;
     private boolean isFavor;
+    private String link;
 
-
-    public Films(String name, String description, int filmAva, float rating, boolean isFavor) {
+    public Films(String name, String description, int filmAva, float rating, boolean isFavor, String link) {
         this.name = name;
         this.description = description;
         this.filmAva = filmAva;
         this.rating = rating;
         this.isFavor = isFavor;
+        this.link = link;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public Films(Parcel in) {

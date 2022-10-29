@@ -4,45 +4,54 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity{
     FloatingActionButton fabMore, fabAcs, fabDesc;
     Animation fabOpen, fabClose, rotateForward, rotateBackward;
     boolean isOpen = false;
-
+    boolean isDesc = false;
     BottomNavigationView bottomNavigationView;
+
     ArrayList<Films> films = new ArrayList<>();
     ArrayList<Films> favorFilms = new ArrayList<>();
+
+    HomeFragment hFragment;
+    Fragment fragment;
+
+    Bundle bundle;
     int filmsAva = R.drawable.pic_28;
+
+
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Button btn = new Button(this);
+        View view = new View(this);
+`
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         setUpFilms();
-        Bundle bundle = new Bundle();
+        bundle = new Bundle();
         bundle.putParcelableArrayList("films",films);
-        HomeFragment hFragment = new HomeFragment();
+        hFragment = new HomeFragment();
         hFragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, hFragment).commit();
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
-            Fragment fragment = new Fragment();
+            fragment = new Fragment();
             switch (item.getItemId()){
                 case R.id.nav_home:
                     hFragment.setFavorites(favorFilms);
@@ -62,21 +71,16 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void fab(){
-        fabMore = (FloatingActionButton) findViewById(R.id.fab_more);
-        fabAcs = (FloatingActionButton) findViewById(R.id.fab_asc);
-        fabDesc = (FloatingActionButton) findViewById(R.id.fab_desc);
+        fabMore = findViewById(R.id.fab_more);
+        fabAcs =  findViewById(R.id.fab_asc);
+        fabDesc =  findViewById(R.id.fab_desc);
 
         fabOpen = AnimationUtils.loadAnimation(this, R.anim.fab_open);
         fabClose = AnimationUtils.loadAnimation(this, R.anim.fab_close);
         rotateForward = AnimationUtils.loadAnimation(this, R.anim.rotate_forward);
         rotateBackward = AnimationUtils.loadAnimation(this, R.anim.rotate_backward);
 
-        fabMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                animateFab();
-            }
-        });
+        fabMore.setOnClickListener(view -> animateFab());
     }
     private void animateFab() {
         if (isOpen){
@@ -92,7 +96,24 @@ public class MainActivity extends AppCompatActivity{
             fabAcs.startAnimation(fabOpen);
             fabDesc.startAnimation(fabOpen);
             fabAcs.setClickable(true);
-            fabDesc.setClickable(true);
+            fabAcs.setOnClickListener(v->{
+                isDesc = false;
+                fabDesc.setClickable(true);
+                fabAcs.setClickable(false);
+//                fabAcs.setBac
+                hFragment.changeDesc();
+            });
+            fabDesc.setOnClickListener(v->{
+                isDesc = true;
+                fabAcs.setClickable(true);
+                fabDesc.setClickable(false);
+                hFragment.changeDesc();
+//                fabAcs.setBackgroundColor(Color.parseColor("#d3d3d3"));
+                fabAcs.setBackgroundTintList(new ColorStateList(
+                        new int[][] {{0, 1}, {0, 1}}, new int[] {Color.WHITE, Color.BLACK}
+                ));
+            });
+
             isOpen = true;
         }
     }
@@ -101,10 +122,9 @@ public class MainActivity extends AppCompatActivity{
         String[] description = getResources().getStringArray(R.array.description);
         String[] rating = getResources().getStringArray(R.array.rating);
         for (int i = 0; i < name.length; i++) {
-            films.add(new Films(name[i], description[i], filmsAva, Float.parseFloat(rating[i]), false));
+            films.add(new Films(name[i], description[i], filmsAva, Float.parseFloat(rating[i]), false, link));
         }
         films.sort((a, b) -> Float.compare(b.getRating(),a.getRating()));
-//            films.sort((a, b) -> Float.compare(a.getRating(),b.getRating()));
     }
 
 }

@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class HomeFragment extends Fragment implements FilmsViewInterface{
@@ -24,8 +25,11 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private ArrayList<Films> films;
+    private ArrayList<Films> tempFilms;
     private ArrayList<Films> favorFilms = new ArrayList<>();
+    RecyclerView recyclerview;
     FilmsViewAdapter fVA;
+    Bundle bundle ;
     // TODO: Rename and change types of parameters
 
     public HomeFragment() {
@@ -42,6 +46,10 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
         favorFilms.remove(removeFilms);
         films.remove(removeFilms);
         fVA.notifyItemRemoved(pos);
+    }
+    public void changeDesc() {
+        Collections.reverse(films);
+        fVA.notifyDataSetChanged();
     }
 
     @Override
@@ -61,8 +69,9 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        films = getArguments()!=null?getArguments().getParcelableArrayList("films"):null;
-        RecyclerView recyclerview = view.findViewById(R.id.filmsView);
+        bundle = getArguments();
+        films = getArguments()!=null?bundle.getParcelableArrayList("films"):null;
+        recyclerview = view.findViewById(R.id.filmsView);
         fVA = new FilmsViewAdapter(getContext(),films,this);
 
         recyclerview.setAdapter(fVA);
@@ -75,6 +84,7 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
         intent.putExtra("NAME", films.get(pos).getName());
         intent.putExtra("DESCRIPTION", films.get(pos).getDescription());
         intent.putExtra("AVA", films.get(pos).getFilmAva());
+        intent.putExtra("LINK",films.get(pos).getLink());
         startActivity(intent);
     }
     public void setFavorites(ArrayList<Films> favorites) {
@@ -89,5 +99,12 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
             films.get(pos).setFavor(false);
             favorFilms.remove(films.get(pos));
         }
+    }
+    public String array2string(ArrayList<Films> films){
+        String ab = "";
+        for(Films i:films){
+            ab += i.toString() + "  ";
+        }
+        return ab;
     }
 }
