@@ -3,12 +3,12 @@ package com.example.midtermproject;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,19 +18,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 
 
 public class HomeFragment extends Fragment implements FilmsViewInterface{
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    EditText search;
     private ArrayList<Films> films;
-    private ArrayList<Films> tempFilms;
     private ArrayList<Films> favorFilms = new ArrayList<>();
+    private ArrayList<Films> searchFilms = new ArrayList<>();
     RecyclerView recyclerview;
     FilmsViewAdapter fVA;
     Bundle bundle ;
-    // TODO: Rename and change types of parameters
 
     public HomeFragment() {
     }
@@ -47,6 +45,7 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
         films.remove(removeFilms);
         fVA.notifyItemRemoved(pos);
     }
+    @SuppressLint("NotifyDataSetChanged")
     public void changeDesc() {
         Collections.reverse(films);
         fVA.notifyDataSetChanged();
@@ -69,6 +68,30 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        search = view.findViewById(R.id.search_edit_text);
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+            @Override
+            public void afterTextChanged(Editable e) {
+                searchFilms.clear();
+                if(e.toString().isEmpty()){
+                    recyclerview.setAdapter(new FilmsViewAdapter(getContext(),films,HomeFragment.this));
+                    fVA.notifyDataSetChanged();
+                }
+                else{
+                    for (Films i: films){
+                        if (i.getName().toLowerCase().contains(e.toString().toLowerCase())){
+                            searchFilms.add(i);
+                        }
+                    }
+                    recyclerview.setAdapter(new FilmsViewAdapter(getContext(),searchFilms,HomeFragment.this));
+                    fVA.notifyDataSetChanged();
+                }
+            }
+        });
         bundle = getArguments();
         films = getArguments()!=null?bundle.getParcelableArrayList("films"):null;
         recyclerview = view.findViewById(R.id.filmsView);

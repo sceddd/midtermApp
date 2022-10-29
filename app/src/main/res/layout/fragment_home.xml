@@ -14,7 +14,7 @@
         android:paddingTop="70dp"
         />
     <EditText
-        android:id="@+id/edit_text_name"
+        android:id="@+id/search_edit_text"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_margin="12dp"

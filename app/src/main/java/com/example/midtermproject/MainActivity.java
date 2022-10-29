@@ -37,13 +37,11 @@ public class MainActivity extends AppCompatActivity{
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Button btn = new Button(this);
-        View view = new View(this);
-`
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         setUpFilms();
+
         bundle = new Bundle();
         bundle.putParcelableArrayList("films",films);
         hFragment = new HomeFragment();
@@ -101,6 +99,7 @@ public class MainActivity extends AppCompatActivity{
                 fabDesc.setClickable(true);
                 fabAcs.setClickable(false);
 //                fabAcs.setBac
+                //TODO: setColor for the button after click
                 hFragment.changeDesc();
             });
             fabDesc.setOnClickListener(v->{
@@ -108,10 +107,6 @@ public class MainActivity extends AppCompatActivity{
                 fabAcs.setClickable(true);
                 fabDesc.setClickable(false);
                 hFragment.changeDesc();
-//                fabAcs.setBackgroundColor(Color.parseColor("#d3d3d3"));
-                fabAcs.setBackgroundTintList(new ColorStateList(
-                        new int[][] {{0, 1}, {0, 1}}, new int[] {Color.WHITE, Color.BLACK}
-                ));
             });
 
             isOpen = true;
@@ -122,7 +117,7 @@ public class MainActivity extends AppCompatActivity{
         String[] description = getResources().getStringArray(R.array.description);
         String[] rating = getResources().getStringArray(R.array.rating);
         for (int i = 0; i < name.length; i++) {
-            films.add(new Films(name[i], description[i], filmsAva, Float.parseFloat(rating[i]), false, link));
+            films.add(new Films(name[i], description[i], filmsAva, Float.parseFloat(rating[i]), false, "Films"));
         }
         films.sort((a, b) -> Float.compare(b.getRating(),a.getRating()));
     }
