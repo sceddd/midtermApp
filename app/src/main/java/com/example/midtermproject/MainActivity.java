@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -19,7 +20,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
     FloatingActionButton fabMore, fabAcs, fabDesc;
     Animation fabOpen, fabClose, rotateForward, rotateBackward;
     boolean isOpen = false;
@@ -39,15 +40,14 @@ public class MainActivity extends AppCompatActivity{
             R.drawable.pic_7, R.drawable.pic_7,
             R.drawable.pic_9, R.drawable.pic_8,
             R.drawable.pic_11, R.drawable.pic_9,
-            R.drawable.pic_11,R.drawable.pic_12,
-            R.drawable.pic_13,R.drawable.pic_14,
-            R.drawable.pic_15,R.drawable.pic_16,
-            R.drawable.pic_17,R.drawable.pic_18,
-            R.drawable.pic_19,R.drawable.pic_20,
-            R.drawable.pic_21,R.drawable.pic_22,
+            R.drawable.pic_11, R.drawable.pic_12,
+            R.drawable.pic_13, R.drawable.pic_14,
+            R.drawable.pic_15, R.drawable.pic_16,
+            R.drawable.pic_17, R.drawable.pic_18,
+            R.drawable.pic_19, R.drawable.pic_20,
+            R.drawable.pic_21, R.drawable.pic_22,
             R.drawable.pic_23
     };
-
 
 
     @SuppressLint("NonConstantResourceId")
@@ -59,14 +59,14 @@ public class MainActivity extends AppCompatActivity{
         setUpFilms();
 
         bundle = new Bundle();
-        bundle.putParcelableArrayList("films",films);
+        bundle.putParcelableArrayList("films", films);
         hFragment = new HomeFragment();
         hFragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, hFragment).commit();
         bottomNavigationView.setOnItemSelectedListener(item -> {
-            bundle.putParcelableArrayList("films",films);
+            bundle.putParcelableArrayList("films", films);
             fragment = new Fragment();
-            switch (item.getItemId()){
+            switch (item.getItemId()) {
                 case R.id.nav_home:
                     hFragment.setFavorites(favorFilms);
                     fragment = hFragment;
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity{
                 case R.id.nav_favorite:
                     fragment = new FavoriteFragment();
                     favorFilms = hFragment.getFavorites();
-                    bundle.putParcelableArrayList("favor",favorFilms);
+                    bundle.putParcelableArrayList("favor", favorFilms);
                     fragment.setArguments(bundle);
                     break;
             }
@@ -85,10 +85,11 @@ public class MainActivity extends AppCompatActivity{
         fab();
     }
 
-    private void fab(){
+
+    private void fab() {
         fabMore = findViewById(R.id.fab_more);
-        fabAcs =  findViewById(R.id.fab_asc);
-        fabDesc =  findViewById(R.id.fab_desc);
+        fabAcs = findViewById(R.id.fab_asc);
+        fabDesc = findViewById(R.id.fab_desc);
 
         fabOpen = AnimationUtils.loadAnimation(this, R.anim.fab_open);
         fabClose = AnimationUtils.loadAnimation(this, R.anim.fab_close);
@@ -97,54 +98,61 @@ public class MainActivity extends AppCompatActivity{
         rotateBackward = AnimationUtils.loadAnimation(this, R.anim.rotate_backward);
 
         fabMore.setOnClickListener(view -> animateFab());
+
+//       TODO: change code here to sort
+        fabAcs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTest();
+            }
+        });
+        fabDesc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTest();
+            }
+        });
+
     }
 
-    public void updateFavor(Films film){
-        int pos= films.indexOf(film);
+    public void updateFavor(Films film) {
+        int pos = films.indexOf(film);
         films.get(pos).setFavor(false);
 //        hFragment.listChanged(pos);
     }
+
     private void animateFab() {
-        if (isOpen){
+        if (isOpen) {
             fabMore.startAnimation(rotateForward);
             fabAcs.startAnimation(fabClose);
             fabDesc.startAnimation(fabClose);
             fabAcs.setClickable(false);
             fabDesc.setClickable(false);
             isOpen = false;
-        }
-        else{
+        } else {
             fabMore.startAnimation(rotateBackward);
             fabAcs.startAnimation(fabOpen);
             fabDesc.startAnimation(fabOpen);
             fabAcs.setClickable(true);
-            fabAcs.setOnClickListener(v->{
-                isDesc = false;
-                fabDesc.setClickable(true);
-                fabAcs.setClickable(false);
-                ((FilmsViewInterface) fragment).changeDesc();
-            });
-            fabDesc.setOnClickListener(v->{
-                isDesc = true;
-                fabAcs.setClickable(true);
-                fabDesc.setClickable(false);
-                hFragment.changeDesc();
-                ((FilmsViewInterface) fragment).changeDesc();
-            });
-
+            fabDesc.setClickable(true);
             isOpen = true;
         }
     }
+
     private void setUpFilms() {
         String[] name = getResources().getStringArray(R.array.films);
         String[] description = getResources().getStringArray(R.array.description);
         String[] rating = getResources().getStringArray(R.array.rating);
         String[] link = getResources().getStringArray(R.array.link);
         for (int i = 0; i < name.length; i++) {
-            Log.d("TAG", "setUpFilms: "+i);
+            Log.d("TAG", "setUpFilms: " + i);
             films.add(new Films(name[i], description[i], filmsAva[i], Float.parseFloat(rating[i]), false, link[i]));
         }
-        films.sort((a, b) -> Float.compare(b.getRating(),a.getRating()));
+        films.sort((a, b) -> Float.compare(b.getRating(), a.getRating()));
     }
 
+//    For testing
+    public void showTest(){
+        Toast.makeText(this, "click", Toast.LENGTH_SHORT).show();
+    }
 }
