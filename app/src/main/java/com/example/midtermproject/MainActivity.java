@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -16,6 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity{
     FloatingActionButton fabMore, fabAcs, fabDesc;
@@ -31,7 +33,21 @@ public class MainActivity extends AppCompatActivity{
     Fragment fragment;
 
     Bundle bundle;
-    int[] filmsAva = {R.drawable.pic_(1)};
+    int[] filmsAva = {R.drawable.pic_1, R.drawable.pic_2,
+            R.drawable.pic_3, R.drawable.pic_4,
+            R.drawable.pic_5, R.drawable.pic_6,
+            R.drawable.pic_7, R.drawable.pic_7,
+            R.drawable.pic_9, R.drawable.pic_8,
+            R.drawable.pic_11, R.drawable.pic_9,
+            R.drawable.pic_11,R.drawable.pic_12,
+            R.drawable.pic_13,R.drawable.pic_14,
+            R.drawable.pic_15,R.drawable.pic_16,
+            R.drawable.pic_17,R.drawable.pic_18,
+            R.drawable.pic_19,R.drawable.pic_20,
+            R.drawable.pic_21,R.drawable.pic_22,
+            R.drawable.pic_23
+    };
+
 
 
     @SuppressLint("NonConstantResourceId")
@@ -47,7 +63,6 @@ public class MainActivity extends AppCompatActivity{
         hFragment = new HomeFragment();
         hFragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, hFragment).commit();
-
         bottomNavigationView.setOnItemSelectedListener(item -> {
             bundle.putParcelableArrayList("films",films);
             fragment = new Fragment();
@@ -107,15 +122,14 @@ public class MainActivity extends AppCompatActivity{
                 isDesc = false;
                 fabDesc.setClickable(true);
                 fabAcs.setClickable(false);
-//                fabAcs.setBac
-                //TODO: setColor for the button after click
-                hFragment.changeDesc();
+                ((FilmsViewInterface) fragment).changeDesc();
             });
             fabDesc.setOnClickListener(v->{
                 isDesc = true;
                 fabAcs.setClickable(true);
                 fabDesc.setClickable(false);
                 hFragment.changeDesc();
+                ((FilmsViewInterface) fragment).changeDesc();
             });
 
             isOpen = true;
@@ -127,7 +141,8 @@ public class MainActivity extends AppCompatActivity{
         String[] rating = getResources().getStringArray(R.array.rating);
         String[] link = getResources().getStringArray(R.array.link);
         for (int i = 0; i < name.length; i++) {
-            films.add(new Films(name[i], description[i], filmsAva, Float.parseFloat(rating[i]), false, link[i]));
+            Log.d("TAG", "setUpFilms: "+i);
+            films.add(new Films(name[i], description[i], filmsAva[i], Float.parseFloat(rating[i]), false, link[i]));
         }
         films.sort((a, b) -> Float.compare(b.getRating(),a.getRating()));
     }

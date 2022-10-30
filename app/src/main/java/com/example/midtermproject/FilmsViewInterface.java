@@ -7,5 +7,6 @@ public interface FilmsViewInterface {
     void onHeartClick(int pos,boolean isFavor);
     ArrayList<Films> getFavorites();
     void onLongClickView(int pos);
+    void changeDesc();
 }
 

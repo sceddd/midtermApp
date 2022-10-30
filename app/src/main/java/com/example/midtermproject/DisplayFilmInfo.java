@@ -43,8 +43,8 @@ public class DisplayFilmInfo extends AppCompatActivity {
         });
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-
         myWebView.loadData(dataUrl, "text/html", "utf-8");
+
         imageView.setImageResource(filmAva);
         nameTv.setText(name);
         descriptionTv.setText(description);
