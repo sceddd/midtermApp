@@ -75,6 +75,7 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
         return favorFilms;
     }
     @SuppressLint("NotifyDataSetChanged")
+    @Override
     public void changeDesc() {
         Collections.reverse(favorFilms);
         fVA.notifyDataSetChanged();

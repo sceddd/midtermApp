@@ -16,6 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity{
     FloatingActionButton fabMore, fabAcs, fabDesc;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity{
     Fragment fragment;
 
     Bundle bundle;
-    int filmsAva = R.drawable.pic_28;
+    int[] filmsAva = {R.drawable.pic_28};
 
 
     @SuppressLint("NonConstantResourceId")
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity{
         hFragment = new HomeFragment();
         hFragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, hFragment).commit();
-
         bottomNavigationView.setOnItemSelectedListener(item -> {
             bundle.putParcelableArrayList("films",films);
             fragment = new Fragment();
@@ -107,15 +107,14 @@ public class MainActivity extends AppCompatActivity{
                 isDesc = false;
                 fabDesc.setClickable(true);
                 fabAcs.setClickable(false);
-//                fabAcs.setBac
-                //TODO: setColor for the button after click
-                hFragment.changeDesc();
+                ((FilmsViewInterface) fragment).changeDesc();
             });
             fabDesc.setOnClickListener(v->{
                 isDesc = true;
                 fabAcs.setClickable(true);
                 fabDesc.setClickable(false);
                 hFragment.changeDesc();
+                ((FilmsViewInterface) fragment).changeDesc();
             });
 
             isOpen = true;
@@ -126,7 +125,7 @@ public class MainActivity extends AppCompatActivity{
         String[] description = getResources().getStringArray(R.array.description);
         String[] rating = getResources().getStringArray(R.array.rating);
         for (int i = 0; i < name.length; i++) {
-            films.add(new Films(name[i], description[i], filmsAva, Float.parseFloat(rating[i]), false, "Films"));
+            films.add(new Films(name[i], description[i], filmsAva[0], Float.parseFloat(rating[i]), false, "Films"));
         }
         films.sort((a, b) -> Float.compare(b.getRating(),a.getRating()));
     }
