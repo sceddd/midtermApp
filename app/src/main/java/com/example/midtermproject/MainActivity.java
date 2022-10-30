@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity{
     Fragment fragment;
 
     Bundle bundle;
-    int filmsAva = R.drawable.pic_28;
+    int[] filmsAva = {R.drawable.pic_(1)};
 
 
     @SuppressLint("NonConstantResourceId")
@@ -125,8 +125,9 @@ public class MainActivity extends AppCompatActivity{
         String[] name = getResources().getStringArray(R.array.films);
         String[] description = getResources().getStringArray(R.array.description);
         String[] rating = getResources().getStringArray(R.array.rating);
+        String[] link = getResources().getStringArray(R.array.link);
         for (int i = 0; i < name.length; i++) {
-            films.add(new Films(name[i], description[i], filmsAva, Float.parseFloat(rating[i]), false, "Films"));
+            films.add(new Films(name[i], description[i], filmsAva, Float.parseFloat(rating[i]), false, link[i]));
         }
         films.sort((a, b) -> Float.compare(b.getRating(),a.getRating()));
     }

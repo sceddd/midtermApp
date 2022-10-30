@@ -110,7 +110,6 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
         intent.putExtra("DESCRIPTION", films.get(pos).getDescription());
         intent.putExtra("AVA", films.get(pos).getFilmAva());
         intent.putExtra("LINK",films.get(pos).getLink());
-        Log.d("TAG", "onClickView: ");
         startActivity(intent);
     }
     @Override
