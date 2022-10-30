@@ -16,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Objects;
 
 public class FavoriteFragment extends Fragment implements FilmsViewInterface{
     FilmsViewAdapter fVA;
@@ -72,14 +74,19 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
     public ArrayList<Films> getFavorites() {
         return favorFilms;
     }
-
+    @SuppressLint("NotifyDataSetChanged")
+    public void changeDesc() {
+        Collections.reverse(favorFilms);
+        fVA.notifyDataSetChanged();
+    }
     @Override
     public void onLongClickView(int pos) {
-        ((MainActivity)getActivity()).updateFavor(favorFilms.get(pos));
+        ((MainActivity) requireActivity()).updateFavor(favorFilms.get(pos));
         favorFilms.remove(pos);
         if(getArguments()!=null)
             getArguments().putParcelableArrayList("favor",favorFilms);
         Log.d("position",String.valueOf(pos));
+//        ((MainActivity) getActivity()).upd
         fVA.notifyItemRemoved(pos);
     }
 }

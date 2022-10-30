@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,18 +39,16 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
         return favorFilms;
     }
 
-    @Override
-    public void onLongClickView(int pos) {
-        Films removeFilms = films.get(pos);
-        favorFilms.remove(removeFilms);
-        films.remove(removeFilms);
-        fVA.notifyItemRemoved(pos);
-    }
     @SuppressLint("NotifyDataSetChanged")
     public void changeDesc() {
+
         Collections.reverse(films);
         fVA.notifyDataSetChanged();
     }
+//    public void listChanged(int pos){
+//        Log.d("TAG", "listChanged" + pos);
+//        fVA.notifyItemChanged(pos);
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -101,6 +100,9 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerview.setHasFixedSize(true);
     }
+    public void setFavorites(ArrayList<Films> favorites) {
+        favorFilms = favorites;
+    }
     @Override
     public void onClickView(int pos) {
         Intent intent = new Intent(getContext(), DisplayFilmInfo.class);
@@ -108,10 +110,8 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
         intent.putExtra("DESCRIPTION", films.get(pos).getDescription());
         intent.putExtra("AVA", films.get(pos).getFilmAva());
         intent.putExtra("LINK",films.get(pos).getLink());
+        Log.d("TAG", "onClickView: ");
         startActivity(intent);
-    }
-    public void setFavorites(ArrayList<Films> favorites) {
-        favorFilms = favorites;
     }
     @Override
     public void onHeartClick(int pos, boolean isFavor) {
@@ -122,6 +122,10 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
             films.get(pos).setFavor(false);
             favorFilms.remove(films.get(pos));
         }
+        fVA.notifyItemChanged(pos);
+    }
+    @Override
+    public void onLongClickView(int pos) {
     }
     public String array2string(ArrayList<Films> films){
         String ab = "";

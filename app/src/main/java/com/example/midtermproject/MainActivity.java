@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity{
             getSupportFragmentManager().beginTransaction().replace(R.id.main_container, fragment).commit();
             return true;
         });
+
         fab();
     }
 
@@ -76,13 +77,17 @@ public class MainActivity extends AppCompatActivity{
 
         fabOpen = AnimationUtils.loadAnimation(this, R.anim.fab_open);
         fabClose = AnimationUtils.loadAnimation(this, R.anim.fab_close);
+
         rotateForward = AnimationUtils.loadAnimation(this, R.anim.rotate_forward);
         rotateBackward = AnimationUtils.loadAnimation(this, R.anim.rotate_backward);
 
         fabMore.setOnClickListener(view -> animateFab());
     }
-    public void updateFavor(Films pos){
-        films.get(films.indexOf(pos)).setFavor(false);
+
+    public void updateFavor(Films film){
+        int pos= films.indexOf(film);
+        films.get(pos).setFavor(false);
+//        hFragment.listChanged(pos);
     }
     private void animateFab() {
         if (isOpen){
