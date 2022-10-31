@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         bundle = new Bundle();
         hFragment = new HomeFragment();
         bundle.putParcelableArrayList("films", films);
-        Log.d("TAG", "onCreate: " + array2string());
         hFragment.setArguments(bundle);
         fragment = hFragment;
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, fragment).commit();
@@ -96,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
         rotateForward = AnimationUtils.loadAnimation(this, R.anim.rotate_forward);
         rotateBackward = AnimationUtils.loadAnimation(this, R.anim.rotate_backward);
-
+        fabDesc.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d3d3d3")));
+        fabAcs.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FC94AF")));
         fabMore.setOnClickListener(view -> animateFab());
 
         fabAcs.setOnClickListener(view -> {
@@ -104,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
             fabAcs.setClickable(!isDesc);
             fabDesc.setClickable(isDesc);
             isDesc = !isDesc;
+            fabAcs.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d3d3d3")));
+            fabDesc.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FC94AF")));
         });
         fabDesc.setOnClickListener(
         view -> {
@@ -111,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
             fabAcs.setClickable(!isDesc);
             fabDesc.setClickable(isDesc);
             isDesc = !isDesc;
+            fabDesc.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d3d3d3")));
+            fabAcs.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FC94AF")));
         });
     }
 
@@ -150,15 +154,5 @@ public class MainActivity extends AppCompatActivity {
         films.sort((a, b) -> Float.compare(b.getRating(), a.getRating()));
     }
 
-//    For testing
-    public void showTest(){
-        Toast.makeText(this, "click", Toast.LENGTH_SHORT).show();
-    }
-    public String array2string(){
-        String ab = "";
-        for(String i:bundle.keySet()){
-            ab += i + "  ";
-        }
-        return ab;
-    }
+
 }

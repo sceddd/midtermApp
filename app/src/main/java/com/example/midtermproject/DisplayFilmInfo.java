@@ -1,11 +1,14 @@
 package com.example.midtermproject;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,6 +29,7 @@ public class DisplayFilmInfo extends AppCompatActivity {
         String rating = getIntent().getStringExtra("RATING");
         int filmAva = getIntent().getIntExtra("AVA", 0);
         String link = getIntent().getStringExtra("LINK");
+        Button bookB = findViewById(R.id.btnBook);
 
         TextView nameTv = findViewById(R.id.txtName);
         TextView descriptionTv = findViewById(R.id.txtDescription);
@@ -49,6 +53,13 @@ public class DisplayFilmInfo extends AppCompatActivity {
         nameTv.setText(name);
         descriptionTv.setText(description);
         ratingTv.setText(rating);
+
+        bookB.setOnClickListener(v->{
+            Intent launchApp = getPackageManager().getLaunchIntentForPackage("com.cgv.cinema.vn");
+            if (launchApp != null){
+                    startActivity(launchApp);
+            }
+        });
     }
 
 }

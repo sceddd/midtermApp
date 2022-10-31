@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ImageContrastCheck,ImageContrastCheck"
-        android:contentDescription="poster" />
+        android:contentDescription="@string/poster" />
 
     <TextView
         android:id="@+id/txtName"
@@ -71,12 +71,13 @@
         app:layout_constraintTop_toBottomOf="@+id/imgPoster"
         app:layout_constraintVertical_bias="0.342" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corner"
-        android:text="Book"
+        android:backgroundTint="@color/rose"
+        android:text="@string/book"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
