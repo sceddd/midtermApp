@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fabMore, fabAcs, fabDesc;
     Animation fabOpen, fabClose, rotateForward, rotateBackward;
     boolean isOpen = false;
-    boolean isDesc = false;
+    boolean isDesc = true;
     BottomNavigationView bottomNavigationView;
 
     ArrayList<Films> films = new ArrayList<>();
@@ -57,15 +58,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         setUpFilms();
-
         bundle = new Bundle();
-        bundle.putParcelableArrayList("films", films);
         hFragment = new HomeFragment();
+        bundle.putParcelableArrayList("films", films);
+        Log.d("TAG", "onCreate: " + array2string());
         hFragment.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, hFragment).commit();
+        fragment = hFragment;
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, fragment).commit();
         bottomNavigationView.setOnItemSelectedListener(item -> {
-            bundle.putParcelableArrayList("films", films);
-            fragment = new Fragment();
             switch (item.getItemId()) {
                 case R.id.nav_home:
                     hFragment.setFavorites(favorFilms);
@@ -99,26 +99,24 @@ public class MainActivity extends AppCompatActivity {
 
         fabMore.setOnClickListener(view -> animateFab());
 
-//       TODO: change code here to sort
-        fabAcs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showTest();
-            }
+        fabAcs.setOnClickListener(view -> {
+            ((FilmsViewInterface) fragment).changeDesc();
+            fabAcs.setClickable(!isDesc);
+            fabDesc.setClickable(isDesc);
+            isDesc = !isDesc;
         });
-        fabDesc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showTest();
-            }
+        fabDesc.setOnClickListener(
+        view -> {
+            ((FilmsViewInterface) fragment).changeDesc();
+            fabAcs.setClickable(!isDesc);
+            fabDesc.setClickable(isDesc);
+            isDesc = !isDesc;
         });
-
     }
 
     public void updateFavor(Films film) {
         int pos = films.indexOf(film);
         films.get(pos).setFavor(false);
-//        hFragment.listChanged(pos);
     }
 
     private void animateFab() {
@@ -129,13 +127,15 @@ public class MainActivity extends AppCompatActivity {
             fabAcs.setClickable(false);
             fabDesc.setClickable(false);
             isOpen = false;
+            ((FilmsViewInterface) fragment).setClickable(true);
         } else {
             fabMore.startAnimation(rotateBackward);
             fabAcs.startAnimation(fabOpen);
             fabDesc.startAnimation(fabOpen);
-            fabAcs.setClickable(true);
-            fabDesc.setClickable(true);
+            fabAcs.setClickable(isDesc);
+            fabDesc.setClickable(!isDesc);
             isOpen = true;
+            ((FilmsViewInterface) fragment).setClickable(false);
         }
     }
 
@@ -145,7 +145,6 @@ public class MainActivity extends AppCompatActivity {
         String[] rating = getResources().getStringArray(R.array.rating);
         String[] link = getResources().getStringArray(R.array.link);
         for (int i = 0; i < name.length; i++) {
-            Log.d("TAG", "setUpFilms: " + i);
             films.add(new Films(name[i], description[i], filmsAva[i], Float.parseFloat(rating[i]), false, link[i]));
         }
         films.sort((a, b) -> Float.compare(b.getRating(), a.getRating()));
@@ -154,5 +153,12 @@ public class MainActivity extends AppCompatActivity {
 //    For testing
     public void showTest(){
         Toast.makeText(this, "click", Toast.LENGTH_SHORT).show();
+    }
+    public String array2string(){
+        String ab = "";
+        for(String i:bundle.keySet()){
+            ab += i + "  ";
+        }
+        return ab;
     }
 }

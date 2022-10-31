@@ -44,6 +44,7 @@ public class FilmsViewAdapter extends RecyclerView.Adapter<FilmsViewAdapter.MyVi
         holder.filmName.setText(films.get(position).getName());
         holder.filmsAva.setImageResource(films.get(position).getFilmAva());
         holder.filmDescription.setText(films.get(position).getDescription());
+        holder.filmRating.setText(String.valueOf(films.get(position).getRating()));
         int color = films.get(position).isFavor()? Color.parseColor("#FC94AF") :Color.parseColor("#FFFFFFFF");
         holder.heartClick.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
     }
@@ -58,7 +59,7 @@ public class FilmsViewAdapter extends RecyclerView.Adapter<FilmsViewAdapter.MyVi
         ImageView filmsAva;
         TextView filmName;
         TextView filmDescription;
-        TextView filmDayRel;
+        TextView filmRating;
         ImageButton heartClick;
     @SuppressLint("ResourceAsColor")
         public MyViewHolder(@NotNull@NonNull View itemView, FilmsViewInterface filmsViewInterface) {
@@ -66,7 +67,7 @@ public class FilmsViewAdapter extends RecyclerView.Adapter<FilmsViewAdapter.MyVi
             filmsAva = itemView.findViewById(R.id.avatar);
             filmName = itemView.findViewById(R.id.name);
             filmDescription = itemView.findViewById(R.id.description);
-            filmDayRel = itemView.findViewById(R.id.dayRelease);
+            filmRating = itemView.findViewById(R.id.rating);
             heartClick = itemView.findViewById(R.id.button);
 
             itemView.setOnClickListener(v->{

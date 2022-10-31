@@ -8,5 +8,7 @@ public interface FilmsViewInterface {
     ArrayList<Films> getFavorites();
     void onLongClickView(int pos);
     void changeDesc();
+    void setClickable(boolean status);
+
 }
 

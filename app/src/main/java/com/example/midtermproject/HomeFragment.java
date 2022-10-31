@@ -29,7 +29,7 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
     private ArrayList<Films> searchFilms = new ArrayList<>();
     RecyclerView recyclerview;
     FilmsViewAdapter fVA;
-    Bundle bundle ;
+    boolean clickAble = true;
 
     public HomeFragment() {
     }
@@ -44,6 +44,11 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
     public void changeDesc() {
         Collections.reverse(films);
         fVA.notifyDataSetChanged();
+    }
+
+    @Override
+    public void setClickable(boolean status) {
+        clickAble = status;
     }
 //    public void listChanged(int pos){
 //        Log.d("TAG", "listChanged" + pos);
@@ -67,6 +72,13 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        films = getArguments()!=null?getArguments().getParcelableArrayList("films"):null;
+        recyclerview = view.findViewById(R.id.filmsView);
+        fVA = new FilmsViewAdapter(getContext(),films,this);
+
+        recyclerview.setAdapter(fVA);
+        recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerview.setHasFixedSize(true);
         search = view.findViewById(R.id.search_edit_text);
         search.addTextChangedListener(new TextWatcher() {
             @Override
@@ -91,37 +103,34 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
                 }
             }
         });
-        bundle = getArguments();
-        films = getArguments()!=null?bundle.getParcelableArrayList("films"):null;
-        recyclerview = view.findViewById(R.id.filmsView);
-        fVA = new FilmsViewAdapter(getContext(),films,this);
 
-        recyclerview.setAdapter(fVA);
-        recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerview.setHasFixedSize(true);
     }
     public void setFavorites(ArrayList<Films> favorites) {
         favorFilms = favorites;
     }
     @Override
     public void onClickView(int pos) {
-        Intent intent = new Intent(getContext(), DisplayFilmInfo.class);
-        intent.putExtra("NAME", films.get(pos).getName());
-        intent.putExtra("DESCRIPTION", films.get(pos).getDescription());
-        intent.putExtra("AVA", films.get(pos).getFilmAva());
-        intent.putExtra("LINK",films.get(pos).getLink());
-        startActivity(intent);
+        if (clickAble) {
+            Intent intent = new Intent(getContext(), DisplayFilmInfo.class);
+            intent.putExtra("NAME", films.get(pos).getName());
+            intent.putExtra("DESCRIPTION", films.get(pos).getDescription());
+            intent.putExtra("AVA", films.get(pos).getFilmAva());
+            intent.putExtra("LINK", films.get(pos).getLink());
+            startActivity(intent);
+        }
     }
     @Override
     public void onHeartClick(int pos, boolean isFavor) {
-        if (isFavor) {
-            films.get(pos).setFavor(true);
-            favorFilms.add(films.get(pos));
-        } else {
-            films.get(pos).setFavor(false);
-            favorFilms.remove(films.get(pos));
+        if (clickAble){
+            if (isFavor) {
+                films.get(pos).setFavor(true);
+                favorFilms.add(films.get(pos));
+            } else {
+                films.get(pos).setFavor(false);
+                favorFilms.remove(films.get(pos));
+            }
+            fVA.notifyItemChanged(pos);
         }
-        fVA.notifyItemChanged(pos);
     }
     @Override
     public void onLongClickView(int pos) {

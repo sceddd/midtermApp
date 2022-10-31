@@ -22,16 +22,15 @@ import java.util.Objects;
 public class FavoriteFragment extends Fragment implements FilmsViewInterface{
     FilmsViewAdapter fVA;
     private ArrayList<Films> favorFilms;
-    public FavoriteFragment() {
-        // Required empty public constructor
-    }
-
+    boolean clickAble = true;
+    public FavoriteFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
+
+
     @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -49,6 +48,8 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerview.setHasFixedSize(true);
     }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,13 +57,17 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
         return inflater.inflate(R.layout.fragment_favorite, container, false);
     }
 
+
     @Override
     public void onClickView(int pos) {
-        Intent intent = new Intent(getContext(), DisplayFilmInfo.class);
-        intent.putExtra("NAME", favorFilms.get(pos).getName());
-        intent.putExtra("DESCRIPTION", favorFilms.get(pos).getDescription());
-        intent.putExtra("AVA", favorFilms.get(pos).getFilmAva());
-        startActivity(intent);
+        if (clickAble)
+        {
+            Intent intent = new Intent(getContext(), DisplayFilmInfo.class);
+            intent.putExtra("NAME", favorFilms.get(pos).getName());
+            intent.putExtra("DESCRIPTION", favorFilms.get(pos).getDescription());
+            intent.putExtra("AVA", favorFilms.get(pos).getFilmAva());
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -80,14 +85,23 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
         Collections.reverse(favorFilms);
         fVA.notifyDataSetChanged();
     }
+
+    @Override
+    public void setClickable(boolean status) {
+        clickAble = status;
+    }
+
     @Override
     public void onLongClickView(int pos) {
-        ((MainActivity) requireActivity()).updateFavor(favorFilms.get(pos));
-        favorFilms.remove(pos);
-        if(getArguments()!=null)
-            getArguments().putParcelableArrayList("favor",favorFilms);
-        Log.d("position",String.valueOf(pos));
+        if (clickAble)
+        {
+            ((MainActivity) requireActivity()).updateFavor(favorFilms.get(pos));
+            favorFilms.remove(pos);
+            if (getArguments() != null)
+                getArguments().putParcelableArrayList("favor", favorFilms);
+            Log.d("position", String.valueOf(pos));
 //        ((MainActivity) getActivity()).upd
-        fVA.notifyItemRemoved(pos);
+            fVA.notifyItemRemoved(pos);
+        }
     }
 }

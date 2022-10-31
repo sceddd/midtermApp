@@ -34,7 +34,7 @@ public class DisplayFilmInfo extends AppCompatActivity {
 
         String myUrl = "https://www.youtube.com/embed/"+link;
         String dataUrl = "<html><body><iframe width=\"400\" height=\"315\" src=\" "+myUrl+ "\" frameborder=\"0\" allowfullscreen></iframe></body></html>";
-        WebView myWebView = (WebView) findViewById(R.id.webView);
+        WebView myWebView = findViewById(R.id.webView);
         myWebView.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
