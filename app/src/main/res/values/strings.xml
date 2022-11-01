@@ -12,13 +12,13 @@
         <item>Breathless</item>
         <item>Jumanji</item>
         <item>The professional</item>
-        <!--        <item>Alice in wonderland</item>-->
-        <!--        <item>Pet sematary</item>-->
-        <!--        <item>American beauty</item>-->
-        <!--        <item>Home alone</item>-->
-        <!--        <item>Inception</item>-->
-        <!--        <item>The godfather, Part 2</item>-->
-        <!--        <item>Sherlock holmes</item>-->
+        <item>Alice in wonderland</item>
+        <item>Pet sematary</item>
+        <item>American beauty</item>
+        <item>Home alone</item>
+        <item>Inception</item>
+        <item>The godfather, Part 2</item>
+        <item>Sherlock holmes</item>
         <!--        <item>Mission: impossible</item>-->
         <!--        <item>split</item>-->
         <!--        <item>The truman show</item>-->
@@ -60,9 +60,16 @@
         <!--        <item>Oct 4, 2019</item>-->
     </string-array>
     <string-array name="description">
-        <item>hhlasjdfkld</item>
-        <item>hhlasjdfkld</item>
-        <item>hhlasjdfkld</item>
+        <item>Jesse Lujack (Richard Gere) is a small-time hustler who, while leaving Las Vegas in a stolen car, shoots and kills a police officer.</item>
+        <item>A magical board game unleashes a world of adventure on siblings Peter (Bradley Pierce) and Judy Shepherd (Kirsten Dunst).</item>
+        <item>Mathilda (Natalie Portman) is only 12 years old, but is already familiar with the dark side of life: her abusive father</item>
+        <item>In this version of the Lewis Carroll classic, Alice (Charlotte Henry) discovers that an ordinary library</item>
+        <item>Dr. Louis Creed and his wife, Rachel, relocate from Boston to rural Maine with their two young children.</item>
+        <item>Lester Burnham (Kevin Spacey) is a gainfully employed suburban husband and father. Fed up with his boring</item>
+        <item>After snarky youth Kevin McCallister (Macaulay Culkin) loses track of his father at the airport</item>
+        <item>Dom Cobb (Leonardo DiCaprio) is a thief with the rare ability to enter people\'s dreams and</item>
+        <item>The compelling sequel to "The Godfather," contrasting the life of Corleone father and son.</item>
+        <item>When Austria\'s crown prince is found dead, evidence seems to point to suicide.</item>
 <!--        <item>Jesse Lujack (Richard Gere) is a small-time hustler who, while leaving Las Vegas in a stolen car, shoots and kills a police officer. When his picture turns up in the papers, Jesse hides out in Los Angeles with a French student, Monica Poiccard (Valérie Kaprisky), whom he knows from a previous affair. Monica is bewitched by his reckless behavior, enough so that she keeps quiet even after learning that he\'s wanted. But when police identify her as Jesse's lover, she has second thoughts.</item>-->
 <!--        <item>A magical board game unleashes a world of adventure on siblings Peter (Bradley Pierce) and Judy Shepherd (Kirsten Dunst). While exploring an old mansion, the youngsters find a curious, jungle-themed game called Jumanji in the attic. When they start playing, they free Alan Parrish (Robin Williams), who\'s been stuck in the game's inner world for decades. If they win Jumanji, the kids can free Alan for good — but that means braving giant bugs, ill-mannered monkeys and even stampeding rhinos!</item>-->
 <!--        <item>Mathilda (Natalie Portman) is only 12 years old, but is already familiar with the dark side of life: her abusive father stories drugs for corrupt police officers, and her mother neglects her. Léon (Jean Reno), who lives down the hall, tends to his houseplants and works as a hired hitman for mobster Tony (Danny Aiello). When her family is murdered by crooked DEA agent Stansfield (Gary Oldman), Mathilda joins forces with a reluctant Léon to learn his deadly trade and avenge her family\'s deaths.</item>-->
@@ -90,8 +97,15 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="rating">
         <item>10</item>
-        <item>6.7</item>
+        <item>8.7</item>
         <item>7.5</item>
+        <item>7.7</item>
+        <item>7.4</item>
+        <item>6.1</item>
+        <item>7.8</item>
+        <item>6.8</item>
+        <item>7.5</item>
+        <item>6.7</item>
         <!--        <item>Jesse Lujack (Richard Gere) is a small-time hustler who, while leaving Las Vegas in a stolen car, shoots and kills a police officer. When his picture turns up in the papers, Jesse hides out in Los Angeles with a French student, Monica Poiccard (Valérie Kaprisky), whom he knows from a previous affair. Monica is bewitched by his reckless behavior, enough so that she keeps quiet even after learning that he\'s wanted. But when police identify her as Jesse's lover, she has second thoughts.</item>-->
         <!--        <item>A magical board game unleashes a world of adventure on siblings Peter (Bradley Pierce) and Judy Shepherd (Kirsten Dunst). While exploring an old mansion, the youngsters find a curious, jungle-themed game called Jumanji in the attic. When they start playing, they free Alan Parrish (Robin Williams), who\'s been stuck in the game's inner world for decades. If they win Jumanji, the kids can free Alan for good — but that means braving giant bugs, ill-mannered monkeys and even stampeding rhinos!</item>-->
         <!--        <item>Mathilda (Natalie Portman) is only 12 years old, but is already familiar with the dark side of life: her abusive father stories drugs for corrupt police officers, and her mother neglects her. Léon (Jean Reno), who lives down the hall, tends to his houseplants and works as a hired hitman for mobster Tony (Danny Aiello). When her family is murdered by crooked DEA agent Stansfield (Gary Oldman), Mathilda joins forces with a reluctant Léon to learn his deadly trade and avenge her family\'s deaths.</item>-->
@@ -120,6 +134,13 @@
         <item>iAuqDI4EAl4</item>
         <item>2QKg5SZ_35I</item>
         <item>jawVxq1Iyl0</item>
+        <item>ZYzbalQ6Lg8</item>
+        <item>ZYzbalQ6Lg8</item>
+        <item>ZYzbalQ6Lg8</item>
+        <item>ZYzbalQ6Lg8</item>
+        <item>ZYzbalQ6Lg8</item>
+        <item>ZYzbalQ6Lg8</item>
+        <item>ZYzbalQ6Lg8</item>
         <!--        <item>ZYzbalQ6Lg8</item>-->
         <!--        <item>ZYzbalQ6Lg8</item>-->
         <!--        <item>ZYzbalQ6Lg8</item>-->

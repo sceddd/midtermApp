@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:id="@+id/filmsView"
         android:paddingTop="70dp"
+        android:paddingBottom="90dp"
         />
     <EditText
         android:id="@+id/search_edit_text"
