@@ -1,6 +1,7 @@
 package com.example.midtermproject;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,6 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -30,6 +35,8 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
     RecyclerView recyclerview;
     FilmsViewAdapter fVA;
     boolean clickAble = true;
+    int recentClick = -1;
+
 
     public HomeFragment() {
     }
@@ -50,10 +57,6 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
     public void setClickable(boolean status) {
         clickAble = status;
     }
-//    public void listChanged(int pos){
-//        Log.d("TAG", "listChanged" + pos);
-//        fVA.notifyItemChanged(pos);
-//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -111,14 +114,29 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
     @Override
     public void onClickView(int pos) {
         if (clickAble) {
+            recentClick = pos;
             Intent intent = new Intent(getContext(), DisplayFilmInfo.class);
             intent.putExtra("NAME", films.get(pos).getName());
             intent.putExtra("DESCRIPTION", films.get(pos).getDescription());
             intent.putExtra("AVA", films.get(pos).getFilmAva());
             intent.putExtra("LINK", films.get(pos).getLink());
-            startActivity(intent);
+            intent.putExtra("ISFAVOR", films.get(pos).isFavor());
+            someActivityResultLauncher.launch(intent);
+
         }
     }
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent intent = result.getData();
+                    if (intent!=null) {
+                        films.get(recentClick).setFavor(intent.getBooleanExtra("ISFAVOR", false));
+                        fVA.notifyItemChanged(recentClick);
+                    }
+                }
+            });
+
     @Override
     public void onHeartClick(int pos, boolean isFavor) {
         if (clickAble){
@@ -133,8 +151,7 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
         }
     }
     @Override
-    public void onLongClickView(int pos) {
-    }
+    public void onLongClickView(int pos) {}
     public String array2string(ArrayList<Films> films){
         String ab = "";
         for(Films i:films){

@@ -82,6 +82,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="27dp"
                 android:background="@color/teal_700"
+                android:backgroundTint="@android:color/transparent"
                 android:contentDescription="@string/nav_favorite"
                 android:src="@drawable/ic_favorite"
                 app:layout_constraintBottom_toBottomOf="parent"
