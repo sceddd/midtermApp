@@ -106,11 +106,12 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
                 }
             }
         });
-
+        Log.d("TAG", "finalTouch ");
     }
     public void setFavorites(ArrayList<Films> favorites) {
         favorFilms = favorites;
     }
+
     @Override
     public void onClickView(int pos) {
         if (clickAble) {
@@ -121,21 +122,19 @@ public class HomeFragment extends Fragment implements FilmsViewInterface{
             intent.putExtra("AVA", films.get(pos).getFilmAva());
             intent.putExtra("LINK", films.get(pos).getLink());
             intent.putExtra("ISFAVOR", films.get(pos).isFavor());
-            someActivityResultLauncher.launch(intent);
-
+            Log.d("HomeFrag", "onClickView: "+pos +"     "+ films.get(pos).isFavor());
+            ((MainActivity )requireActivity()).someActivityResultLauncher.launch(intent);
         }
     }
-    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-                if (result.getResultCode() == Activity.RESULT_OK) {
-                    Intent intent = result.getData();
-                    if (intent!=null) {
-                        films.get(recentClick).setFavor(intent.getBooleanExtra("ISFAVOR", false));
-                        fVA.notifyItemChanged(recentClick);
-                    }
-                }
-            });
+
+    public int getRecentClick(){
+        return recentClick;
+    }
+
+    @Override
+    public FilmsViewAdapter getAdapter() {
+        return fVA;
+    }
 
     @Override
     public void onHeartClick(int pos, boolean isFavor) {

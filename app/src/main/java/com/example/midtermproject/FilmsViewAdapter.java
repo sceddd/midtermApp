@@ -41,6 +41,7 @@ public class FilmsViewAdapter extends RecyclerView.Adapter<FilmsViewAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        Log.d("TAG", "onBindViewHolder: ");
         holder.filmName.setText(films.get(position).getName());
         holder.filmsAva.setImageResource(films.get(position).getFilmAva());
         holder.filmDescription.setText(films.get(position).getDescription());

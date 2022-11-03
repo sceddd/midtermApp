@@ -23,6 +23,7 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
     FilmsViewAdapter fVA;
     private ArrayList<Films> favorFilms;
     boolean clickAble = true;
+    int recentClick;
     public FavoriteFragment() {}
 
     @Override
@@ -37,6 +38,7 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
         super.onViewCreated(view, savedInstanceState);
         favorFilms = getArguments()!=null?getArguments().getParcelableArrayList("favor"):null;
         RecyclerView recyclerview = view.findViewById(R.id.favRecycle);
+        Log.d("123",array2string(favorFilms));
         fVA = new FilmsViewAdapter(getContext(),favorFilms,this){
             @Override
             public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
@@ -61,18 +63,21 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
     @Override
     public void onClickView(int pos) {
         if (clickAble)
-        {
+        {   recentClick = pos;
             Intent intent = new Intent(getContext(), DisplayFilmInfo.class);
             intent.putExtra("NAME", favorFilms.get(pos).getName());
             intent.putExtra("DESCRIPTION", favorFilms.get(pos).getDescription());
             intent.putExtra("AVA", favorFilms.get(pos).getFilmAva());
-            startActivity(intent);
+            intent.putExtra("LINK", favorFilms.get(pos).getLink());
+            intent.putExtra("ISFAVOR", favorFilms.get(pos).isFavor());
+            Log.d("FavorFrag", "onClickView: "+pos +"     "+ favorFilms.get(pos).isFavor());
+            ((MainActivity) requireActivity()).someActivityResultLauncher.launch(intent);
+
         }
     }
 
     @Override
     public void onHeartClick(int pos,boolean isFavor) {
-
     }
 
     @Override
@@ -92,6 +97,16 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
     }
 
     @Override
+    public int getRecentClick() {
+        return recentClick;
+    }
+
+    @Override
+    public FilmsViewAdapter getAdapter() {
+        return fVA;
+    }
+
+    @Override
     public void onLongClickView(int pos) {
         if (clickAble)
         {
@@ -99,9 +114,14 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
             favorFilms.remove(pos);
             if (getArguments() != null)
                 getArguments().putParcelableArrayList("favor", favorFilms);
-            Log.d("position", String.valueOf(pos));
-//        ((MainActivity) getActivity()).upd
             fVA.notifyItemRemoved(pos);
         }
+    }
+    public String array2string(ArrayList<Films> films){
+        String ab = "";
+        for(Films i:films){
+            ab += i.toString() + "  ";
+        }
+        return ab;
     }
 }

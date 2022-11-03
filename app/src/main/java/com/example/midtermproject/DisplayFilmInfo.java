@@ -37,18 +37,19 @@ public class DisplayFilmInfo extends AppCompatActivity {
         int filmAva = getIntent().getIntExtra("AVA", 0);
         String link = getIntent().getStringExtra("LINK");
         isFavor = getIntent().getBooleanExtra("ISFAVOR",false);
-
         Button bookB = findViewById(R.id.btnBook);
         ImageButton heartClick = findViewById(R.id.favorAddv2);
         TextView nameTv = findViewById(R.id.txtName);
         TextView descriptionTv = findViewById(R.id.txtDescription);
         TextView ratingTv = findViewById(R.id.txtRating);
         ImageView imageView = findViewById(R.id.imgPoster);
-        Log.d("TAG", ""+heartClick);
+        heartClick.setColorFilter(isFavor? Color.parseColor("#FC94AF") :Color.parseColor("#FFFFFFFF"), PorterDuff.Mode.SRC_ATOP);
         heartClick.setOnClickListener(v->{
             isFavor = !isFavor;
+            Log.d("TAG", ""+isFavor);
             int color = isFavor? Color.parseColor("#FC94AF") :Color.parseColor("#FFFFFFFF");
             heartClick.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
+
         });
 
         String myUrl = "https://www.youtube.com/embed/"+link;

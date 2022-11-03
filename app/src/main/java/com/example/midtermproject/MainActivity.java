@@ -1,9 +1,13 @@
 package com.example.midtermproject;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -63,17 +67,20 @@ public class MainActivity extends AppCompatActivity {
         bundle.putParcelableArrayList("films", films);
         hFragment.setArguments(bundle);
         fragment = hFragment;
+
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, fragment).commit();
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.nav_home:
                     hFragment.setFavorites(favorFilms);
                     fragment = hFragment;
+
                     break;
                 case R.id.nav_favorite:
                     fragment = new FavoriteFragment();
                     favorFilms = hFragment.getFavorites();
                     bundle.putParcelableArrayList("favor", favorFilms);
+                    Log.d("TAG", "onCreate: "+bundle2String());
                     fragment.setArguments(bundle);
                     break;
             }
@@ -122,7 +129,36 @@ public class MainActivity extends AppCompatActivity {
         int pos = films.indexOf(film);
         films.get(pos).setFavor(false);
     }
+    @SuppressLint("NotifyDataSetChanged")
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent intent = result.getData();
+                    if (intent!=null) {
+                        int recentClick = ((FilmsViewInterface) fragment).getRecentClick();
+                        boolean isFavor = intent.getBooleanExtra("ISFAVOR", false);
+                        Films film = films.get(recentClick);
+                        film.setFavor(isFavor);
+                        if(isFavor&& !favorFilms.contains(film)) {
+                            favorFilms.add(film);
+                            bundle.putParcelableArrayList("favor", favorFilms);
+                        }
+                        if (fragment.getClass() == HomeFragment.class) {
+                            ((FilmsViewInterface) fragment).getAdapter().notifyItemChanged(recentClick);
+                        }
+                        else if (fragment.getClass() == FavoriteFragment.class){
+                            if(!isFavor) {
+                                favorFilms.remove(recentClick);
+                                Log.d("TAG", "dux2");
+                                bundle.putParcelableArrayList("favor", favorFilms);
+                                ((FilmsViewInterface) fragment).getAdapter().notifyItemRemoved(recentClick);
+                            }
+                        }
 
+                    }
+                }
+            });
     private void animateFab() {
         if (isOpen) {
             fabMore.startAnimation(rotateForward);
@@ -154,5 +190,11 @@ public class MainActivity extends AppCompatActivity {
         films.sort((a, b) -> Float.compare(b.getRating(), a.getRating()));
     }
 
-
+    private StringBuilder bundle2String(){
+        StringBuilder temp= new StringBuilder();
+        for(String s: bundle.keySet()){
+            temp.append(s).append("     ");
+        }
+        return temp;
+    }
 }

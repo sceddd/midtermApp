@@ -9,6 +9,8 @@ public interface FilmsViewInterface {
     void onLongClickView(int pos);
     void changeDesc();
     void setClickable(boolean status);
+    int getRecentClick();
+    FilmsViewAdapter getAdapter();
 
 }
 

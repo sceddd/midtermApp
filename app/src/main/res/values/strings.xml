@@ -19,46 +19,9 @@
         <item>Inception</item>
         <item>The godfather, Part 2</item>
         <item>Sherlock holmes</item>
-        <!--        <item>Mission: impossible</item>-->
-        <!--        <item>split</item>-->
-        <!--        <item>The truman show</item>-->
-        <!--        <item>Psycho</item>-->
-        <!--        <item>The wolf of wall street</item>-->
-        <!--        <item>Rocky</item>-->
-        <!--        <item>IT 2</item>-->
-        <!--        <item>Once upon a time in Hollywood</item>-->
-        <!--        <item>Fight club</item>-->
-        <!--        <item>IT</item>-->
-        <!--        <item>UP</item>-->
-        <!--        <item>The Birds</item>-->
-        <!--        <item>Joker</item>-->
-    </string-array>
-    <string-array name="dayRelease">
-        <item>12/12/2022</item>
-        <item>12/12/2022</item>
-        <item>12/12/2022</item>
 
-        <!--        <item>Dec 22, 1933</item>-->
-        <!--        <item>Apr 5, 2019</item>-->
-        <!--        <item>Oct 1, 1999</item>-->
-        <!--        <item>Nov 20, 1992</item>-->
-        <!--        <item>Jul 16, 2010</item>-->
-        <!--        <item>Dec 12, 1974</item>-->
-        <!--        <item>Dec 16, 2011</item>-->
-        <!--        <item>May 22, 1996</item>-->
-        <!--        <item>September 26, 2016</item>-->
-        <!--        <item>June 1, 1998</item>-->
-        <!--        <item>June 16, 1960</item>-->
-        <!--        <item>Jan 11, 2014</item>-->
-        <!--        <item>November 21, 1976</item>-->
-        <!--        <item>Sep 6, 2019</item>-->
-        <!--        <item>Jul 26, 2019</item>-->
-        <!--        <item>September 10,1999</item>-->
-        <!--        <item>Sep 8, 2017</item>-->
-        <!--        <item>May 29, 2009</item>-->
-        <!--        <item>Mar 28, 1963</item>-->
-        <!--        <item>Oct 4, 2019</item>-->
     </string-array>
+
     <string-array name="description">
         <item>Jesse Lujack (Richard Gere) is a small-time hustler who, while leaving Las Vegas in a stolen car, shoots and kills a police officer.</item>
         <item>A magical board game unleashes a world of adventure on siblings Peter (Bradley Pierce) and Judy Shepherd (Kirsten Dunst).</item>
@@ -70,30 +33,7 @@
         <item>Dom Cobb (Leonardo DiCaprio) is a thief with the rare ability to enter people\'s dreams and</item>
         <item>The compelling sequel to "The Godfather," contrasting the life of Corleone father and son.</item>
         <item>When Austria\'s crown prince is found dead, evidence seems to point to suicide.</item>
-<!--        <item>Jesse Lujack (Richard Gere) is a small-time hustler who, while leaving Las Vegas in a stolen car, shoots and kills a police officer. When his picture turns up in the papers, Jesse hides out in Los Angeles with a French student, Monica Poiccard (Valérie Kaprisky), whom he knows from a previous affair. Monica is bewitched by his reckless behavior, enough so that she keeps quiet even after learning that he\'s wanted. But when police identify her as Jesse's lover, she has second thoughts.</item>-->
-<!--        <item>A magical board game unleashes a world of adventure on siblings Peter (Bradley Pierce) and Judy Shepherd (Kirsten Dunst). While exploring an old mansion, the youngsters find a curious, jungle-themed game called Jumanji in the attic. When they start playing, they free Alan Parrish (Robin Williams), who\'s been stuck in the game's inner world for decades. If they win Jumanji, the kids can free Alan for good — but that means braving giant bugs, ill-mannered monkeys and even stampeding rhinos!</item>-->
-<!--        <item>Mathilda (Natalie Portman) is only 12 years old, but is already familiar with the dark side of life: her abusive father stories drugs for corrupt police officers, and her mother neglects her. Léon (Jean Reno), who lives down the hall, tends to his houseplants and works as a hired hitman for mobster Tony (Danny Aiello). When her family is murdered by crooked DEA agent Stansfield (Gary Oldman), Mathilda joins forces with a reluctant Léon to learn his deadly trade and avenge her family\'s deaths.</item>-->
-<!--        <item>In this version of the Lewis Carroll classic, Alice (Charlotte Henry) discovers that an ordinary library mirror is actually a portal into another world. As she adjusts to her constantly changing size, thanks to some mysterious cookies, she follows a rabbit with a pocket watch, stumbles upon a deranged tea party and seeks advice from the shadowy Cheshire Cat (Richard Arlen). Later, Alice runs into Humpty Dumpty (W.C. Fields), whose unfortunate tumble sets even stranger events in motion.</item>-->
-<!--        <item>Dr. Louis Creed and his wife, Rachel, relocate from Boston to rural Maine with their two young children. The couple soon discover a mysterious burial ground hidden deep in the woods near their new home. When tragedy strikes, Louis turns to his neighbor Jud Crandall, setting off a perilous chain reaction that unleashes an unspeakable evil with horrific consequences.</item>-->
-<!--        <item>Lester Burnham (Kevin Spacey) is a gainfully employed suburban husband and father. Fed up with his boring, stagnant existence, he quits his job and decides to reinvent himself as a pot-smoking, responsibility-shirking teenager. What follows is at once cynical, hysterical, and, eventually, tragically uplifting.</item>-->
-<!--        <item>After snarky youth Kevin McCallister (Macaulay Culkin) loses track of his father at the airport, he mistakenly gets on a plane headed for New York City — while the rest of the McCallisters fly to Florida. Now alone in the Big Apple, Kevin cons his way into a room at the Plaza Hotel and begins his usual antics. But when Kevin discovers that the Sticky Bandits (Joe Pesci, Daniel Stern) are on the loose, he struggles to stop them from robbing an elderly man\'s toy store just before Christmas.</item>-->
-<!--        <item>Dom Cobb (Leonardo DiCaprio) is a thief with the rare ability to enter people\'s dreams and steal their secrets from their subconscious. His skill has made him a hot commodity in the world of corporate espionage but has also cost him everything he loves. Cobb gets a chance at redemption when he is offered a seemingly impossible task: Plant an idea in someone\'s mind. If he succeeds, it will be the perfect crime, but a dangerous enemy anticipates Cobb's every move.</item>-->
-<!--        <item>The compelling sequel to "The Godfather," contrasting the life of Corleone father and son. Traces the problems of Michael Corleone (Al Pacino) in 1958 and that of a young immigrant Vito Corleone (Robert De Niro) in 1917\'s Hell's Kitchen. Michael survives many misfortunes and Vito is introduced to a life of crime.</item>-->
-<!--        <item>When Austria\'s crown prince is found dead, evidence seems to point to suicide. However, detective Sherlock Holmes (Robert Downey Jr.) deduces that the prince was murdered and that the crime is but a piece of a puzzle designed by an evil genius named Moriarty (Jared Harris). Holmes and his friend Dr. Watson (Jude Law), who are accompanied by a Gypsy (Noomi Rapace) whose life Holmes saved, chase Moriarty across Europe in the hope that they can thwart his plot before it can come to fruition.</item>-->
-<!--        <item>Mission: impossible</item>-->
-<!--        <item>Though Kevin (James McAvoy) has evidenced 23 personalities to his trusted psychiatrist, Dr. Fletcher (Betty Buckley), there remains one still submerged who is set to materialize and dominate all of the others. Compelled to abduct three teenage girls led by the willful, observant Casey, Kevin reaches a war for survival among all of those contained within him — as well as everyone around him — as the walls between his compartments shatter.</item>-->
-<!--        <item>He doesn\'t know it, but everything in Truman Burbank\'s (Jim Carrey) life is part of a massive TV set. Executive producer Christof (Ed Harris) orchestrates "The Truman Show," a live broadcast of Truman\'s every move captured by hidden cameras. Cristof tries to control Truman\'s mind, even removing his true love, Sylvia (Natascha McElhone), from the show and replacing her with Meryl (Laura Linney). As Truman gradually discovers the truth, however, he must decide whether to act on it.</item>-->
-<!--        <item>Phoenix secretary Marion Crane (Janet Leigh), on the lam after stealing $40,000 from her employer in order to run away with her boyfriend, Sam Loomis (John Gavin), is overcome by exhaustion during a heavy rainstorm. Traveling on the back roads to avoid the police, she stops for the night at the ramshackle Bates Motel and meets the polite but highly strung proprietor Norman Bates (Anthony Perkins), a young man with an interest in taxidermy and a difficult relationship with his mother.</item>-->
-<!--        <item>In 1987, Jordan Belfort (Leonardo DiCaprio) takes an entry-level job at a Wall Street brokerage firm. By the early 1990s, while still in his 20s, Belfort founded his own firm, Stratton Oakmont. Together with his trusted lieutenant (Jonah Hill) and a merry band of brokers, Belfort makes a huge fortune by defrauding wealthy investors out of millions. However, while Belfort and his cronies partake in a hedonistic brew of sex, drugs and thrills, the SEC and the FBI close in on his empire of excess.</item>-->
-<!--        <item>Rocky Balboa (Sylvester Stallone), a small-time boxer from working-class Philadelphia, is arbitrarily chosen to take on the reigning world heavyweight champion, Apollo Creed (Carl Weathers), when the undefeated fighter\'s scheduled opponent is injured. While training with feisty former bantamweight contender Mickey Goldmill (Burgess Meredith), Rocky tentatively begins a relationship with Adrian (Talia Shire), the wallflower sister of his meat-packer pal Paulie (Burt Young).</item>-->
-<!--        <item>Defeated by members of the Losers\' Club, the evil clown Pennywise returns 27 years later to terrorize the town of Derry, Maine, once again. Now adults, the childhood friends have long since gone their separate ways. But when people start disappearing, Mike Hanlon calls the others home for one final stand. Damaged by scars from the past, the united Losers must conquer their deepest fears to destroy the shape-shifting Pennywise — now more powerful than ever.</item>-->
-<!--        <item>Once upon a time in Hollywood</item>-->
-<!--        <item>A depressed man (Edward Norton) suffering from insomnia meets a strange soap salesman named Tyler Durden (Brad Pitt) and soon finds himself living in his squalid house after his perfect apartment is destroyed. The two bored men form an underground club with strict rules and fight other men who are fed up with their mundane lives. Their perfect partnership frays when Marla (Helena Bonham Carter), a fellow support group crasher, attracts Tyler\'s attention</item>-->
-<!--        <item>Seven young outcasts in Derry, Maine, are about to face their worst nightmare — an ancient, shape-shifting evil that emerges from the sewer every 27 years to prey on the town\'s children. Banding together over the course of one horrifying summer, the friends must overcome their own personal fears to battle the murderous, bloodthirsty clown known as Pennywise.</item>-->
-<!--        <item>Carl Fredricksen (Ed Asner), a 78-year-old balloon salesman, is about to fulfill a lifelong dream. Tying thousands of balloons to his house, he flies away to the South American wilderness. But curmudgeonly Carl\'s worst nightmare comes true when he discovers a little boy named Russell is a stowaway aboard the balloon-powered house.</item>-->
-<!--        <item>Melanie Daniels (Tippi Hedren) meets Mitch Brenner (Rod Taylor) in a San Francisco pet store and decides to follow him home. She brings with her the gift of two love birds and they strike up a romance. One day birds start attacking children at Mitch\'s sister's party. A huge assault starts on the town by attacking birds.</item>-->
-<!--        <item>Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks — the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he\'s part of the world around him. Isolated, bullied and disregarded by society, Fleck begins a slow descent into madness as he transforms into the criminal mastermind known as the Joker.</item>-->
-    </string-array>
+</string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="rating">
         <item>10</item>
@@ -106,60 +46,18 @@
         <item>6.8</item>
         <item>7.5</item>
         <item>6.7</item>
-        <!--        <item>Jesse Lujack (Richard Gere) is a small-time hustler who, while leaving Las Vegas in a stolen car, shoots and kills a police officer. When his picture turns up in the papers, Jesse hides out in Los Angeles with a French student, Monica Poiccard (Valérie Kaprisky), whom he knows from a previous affair. Monica is bewitched by his reckless behavior, enough so that she keeps quiet even after learning that he\'s wanted. But when police identify her as Jesse's lover, she has second thoughts.</item>-->
-        <!--        <item>A magical board game unleashes a world of adventure on siblings Peter (Bradley Pierce) and Judy Shepherd (Kirsten Dunst). While exploring an old mansion, the youngsters find a curious, jungle-themed game called Jumanji in the attic. When they start playing, they free Alan Parrish (Robin Williams), who\'s been stuck in the game's inner world for decades. If they win Jumanji, the kids can free Alan for good — but that means braving giant bugs, ill-mannered monkeys and even stampeding rhinos!</item>-->
-        <!--        <item>Mathilda (Natalie Portman) is only 12 years old, but is already familiar with the dark side of life: her abusive father stories drugs for corrupt police officers, and her mother neglects her. Léon (Jean Reno), who lives down the hall, tends to his houseplants and works as a hired hitman for mobster Tony (Danny Aiello). When her family is murdered by crooked DEA agent Stansfield (Gary Oldman), Mathilda joins forces with a reluctant Léon to learn his deadly trade and avenge her family\'s deaths.</item>-->
-        <!--        <item>In this version of the Lewis Carroll classic, Alice (Charlotte Henry) discovers that an ordinary library mirror is actually a portal into another world. As she adjusts to her constantly changing size, thanks to some mysterious cookies, she follows a rabbit with a pocket watch, stumbles upon a deranged tea party and seeks advice from the shadowy Cheshire Cat (Richard Arlen). Later, Alice runs into Humpty Dumpty (W.C. Fields), whose unfortunate tumble sets even stranger events in motion.</item>-->
-        <!--        <item>Dr. Louis Creed and his wife, Rachel, relocate from Boston to rural Maine with their two young children. The couple soon discover a mysterious burial ground hidden deep in the woods near their new home. When tragedy strikes, Louis turns to his neighbor Jud Crandall, setting off a perilous chain reaction that unleashes an unspeakable evil with horrific consequences.</item>-->
-        <!--        <item>Lester Burnham (Kevin Spacey) is a gainfully employed suburban husband and father. Fed up with his boring, stagnant existence, he quits his job and decides to reinvent himself as a pot-smoking, responsibility-shirking teenager. What follows is at once cynical, hysterical, and, eventually, tragically uplifting.</item>-->
-        <!--        <item>After snarky youth Kevin McCallister (Macaulay Culkin) loses track of his father at the airport, he mistakenly gets on a plane headed for New York City — while the rest of the McCallisters fly to Florida. Now alone in the Big Apple, Kevin cons his way into a room at the Plaza Hotel and begins his usual antics. But when Kevin discovers that the Sticky Bandits (Joe Pesci, Daniel Stern) are on the loose, he struggles to stop them from robbing an elderly man\'s toy store just before Christmas.</item>-->
-        <!--        <item>Dom Cobb (Leonardo DiCaprio) is a thief with the rare ability to enter people\'s dreams and steal their secrets from their subconscious. His skill has made him a hot commodity in the world of corporate espionage but has also cost him everything he loves. Cobb gets a chance at redemption when he is offered a seemingly impossible task: Plant an idea in someone\'s mind. If he succeeds, it will be the perfect crime, but a dangerous enemy anticipates Cobb's every move.</item>-->
-        <!--        <item>The compelling sequel to "The Godfather," contrasting the life of Corleone father and son. Traces the problems of Michael Corleone (Al Pacino) in 1958 and that of a young immigrant Vito Corleone (Robert De Niro) in 1917\'s Hell's Kitchen. Michael survives many misfortunes and Vito is introduced to a life of crime.</item>-->
-        <!--        <item>When Austria\'s crown prince is found dead, evidence seems to point to suicide. However, detective Sherlock Holmes (Robert Downey Jr.) deduces that the prince was murdered and that the crime is but a piece of a puzzle designed by an evil genius named Moriarty (Jared Harris). Holmes and his friend Dr. Watson (Jude Law), who are accompanied by a Gypsy (Noomi Rapace) whose life Holmes saved, chase Moriarty across Europe in the hope that they can thwart his plot before it can come to fruition.</item>-->
-        <!--        <item>Mission: impossible</item>-->
-        <!--        <item>Though Kevin (James McAvoy) has evidenced 23 personalities to his trusted psychiatrist, Dr. Fletcher (Betty Buckley), there remains one still submerged who is set to materialize and dominate all of the others. Compelled to abduct three teenage girls led by the willful, observant Casey, Kevin reaches a war for survival among all of those contained within him — as well as everyone around him — as the walls between his compartments shatter.</item>-->
-        <!--        <item>He doesn\'t know it, but everything in Truman Burbank\'s (Jim Carrey) life is part of a massive TV set. Executive producer Christof (Ed Harris) orchestrates "The Truman Show," a live broadcast of Truman\'s every move captured by hidden cameras. Cristof tries to control Truman\'s mind, even removing his true love, Sylvia (Natascha McElhone), from the show and replacing her with Meryl (Laura Linney). As Truman gradually discovers the truth, however, he must decide whether to act on it.</item>-->
-        <!--        <item>Phoenix secretary Marion Crane (Janet Leigh), on the lam after stealing $40,000 from her employer in order to run away with her boyfriend, Sam Loomis (John Gavin), is overcome by exhaustion during a heavy rainstorm. Traveling on the back roads to avoid the police, she stops for the night at the ramshackle Bates Motel and meets the polite but highly strung proprietor Norman Bates (Anthony Perkins), a young man with an interest in taxidermy and a difficult relationship with his mother.</item>-->
-        <!--        <item>In 1987, Jordan Belfort (Leonardo DiCaprio) takes an entry-level job at a Wall Street brokerage firm. By the early 1990s, while still in his 20s, Belfort founded his own firm, Stratton Oakmont. Together with his trusted lieutenant (Jonah Hill) and a merry band of brokers, Belfort makes a huge fortune by defrauding wealthy investors out of millions. However, while Belfort and his cronies partake in a hedonistic brew of sex, drugs and thrills, the SEC and the FBI close in on his empire of excess.</item>-->
-        <!--        <item>Rocky Balboa (Sylvester Stallone), a small-time boxer from working-class Philadelphia, is arbitrarily chosen to take on the reigning world heavyweight champion, Apollo Creed (Carl Weathers), when the undefeated fighter\'s scheduled opponent is injured. While training with feisty former bantamweight contender Mickey Goldmill (Burgess Meredith), Rocky tentatively begins a relationship with Adrian (Talia Shire), the wallflower sister of his meat-packer pal Paulie (Burt Young).</item>-->
-        <!--        <item>Defeated by members of the Losers\' Club, the evil clown Pennywise returns 27 years later to terrorize the town of Derry, Maine, once again. Now adults, the childhood friends have long since gone their separate ways. But when people start disappearing, Mike Hanlon calls the others home for one final stand. Damaged by scars from the past, the united Losers must conquer their deepest fears to destroy the shape-shifting Pennywise — now more powerful than ever.</item>-->
-        <!--        <item>Once upon a time in Hollywood</item>-->
-        <!--        <item>A depressed man (Edward Norton) suffering from insomnia meets a strange soap salesman named Tyler Durden (Brad Pitt) and soon finds himself living in his squalid house after his perfect apartment is destroyed. The two bored men form an underground club with strict rules and fight other men who are fed up with their mundane lives. Their perfect partnership frays when Marla (Helena Bonham Carter), a fellow support group crasher, attracts Tyler\'s attention</item>-->
-        <!--        <item>Seven young outcasts in Derry, Maine, are about to face their worst nightmare — an ancient, shape-shifting evil that emerges from the sewer every 27 years to prey on the town\'s children. Banding together over the course of one horrifying summer, the friends must overcome their own personal fears to battle the murderous, bloodthirsty clown known as Pennywise.</item>-->
-        <!--        <item>Carl Fredricksen (Ed Asner), a 78-year-old balloon salesman, is about to fulfill a lifelong dream. Tying thousands of balloons to his house, he flies away to the South American wilderness. But curmudgeonly Carl\'s worst nightmare comes true when he discovers a little boy named Russell is a stowaway aboard the balloon-powered house.</item>-->
-        <!--        <item>Melanie Daniels (Tippi Hedren) meets Mitch Brenner (Rod Taylor) in a San Francisco pet store and decides to follow him home. She brings with her the gift of two love birds and they strike up a romance. One day birds start attacking children at Mitch\'s sister's party. A huge assault starts on the town by attacking birds.</item>-->
-        <!--        <item>Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks — the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he\'s part of the world around him. Isolated, bullied and disregarded by society, Fleck begins a slow descent into madness as he transforms into the criminal mastermind known as the Joker.</item>-->
     </string-array>
     <string-array name="link">
         <item>iAuqDI4EAl4</item>
         <item>2QKg5SZ_35I</item>
         <item>jawVxq1Iyl0</item>
-        <item>ZYzbalQ6Lg8</item>
-        <item>ZYzbalQ6Lg8</item>
-        <item>ZYzbalQ6Lg8</item>
-        <item>ZYzbalQ6Lg8</item>
-        <item>ZYzbalQ6Lg8</item>
-        <item>ZYzbalQ6Lg8</item>
-        <item>ZYzbalQ6Lg8</item>
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
-        <!--        <item>ZYzbalQ6Lg8</item>-->
+        <item>9POCgSRVvf0</item>
+        <item>VllcgXSIJkE</item>
+        <item>Ly7rq5EsTC8</item>
+        <item>5_o65q1y60M</item>
+        <item>y2TCjYiTGIo</item>
+        <item>9O1Iy9od7-A</item>
+        <item>J7nJksXDBWc</item>
+
     </string-array>
 </resources>
