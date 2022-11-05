@@ -72,9 +72,11 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.nav_home:
+                    hFragment = new HomeFragment();
+                    bundle.putParcelableArrayList("films", films);
+                    hFragment.setArguments(bundle);
                     hFragment.setFavorites(favorFilms);
                     fragment = hFragment;
-
                     break;
                 case R.id.nav_favorite:
                     fragment = new FavoriteFragment();
@@ -108,20 +110,32 @@ public class MainActivity extends AppCompatActivity {
 
         fabAcs.setOnClickListener(view -> {
             ((FilmsViewInterface) fragment).changeDesc();
+            Log.d("1111111111111111111111", "fab: "+fragment);
+            try{
             fabAcs.setClickable(!isDesc);
             fabDesc.setClickable(isDesc);
             isDesc = !isDesc;
             fabAcs.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d3d3d3")));
-            fabDesc.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FC94AF")));
+            fabDesc.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FC94AF")));}
+            catch(Exception e){
+                Log.d("@@@@@@@@@@@@@@@@@@@@@@", "fab: "+e);
+            }
         });
         fabDesc.setOnClickListener(
+
         view -> {
+            Log.d("1111111111111111111111", "fab: "+fragment);
             ((FilmsViewInterface) fragment).changeDesc();
+            try{
             fabAcs.setClickable(!isDesc);
             fabDesc.setClickable(isDesc);
             isDesc = !isDesc;
             fabDesc.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d3d3d3")));
             fabAcs.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FC94AF")));
+
+            }catch(Exception e){
+                Log.d("@@@@@@@@@@@@@@@@@@@@@@", "fab: "+e);
+            }
         });
     }
 
