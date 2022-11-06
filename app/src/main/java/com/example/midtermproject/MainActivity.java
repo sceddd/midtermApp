@@ -63,26 +63,17 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         setUpFilms();
         bundle = new Bundle();
-        hFragment = new HomeFragment();
-        bundle.putParcelableArrayList("films", films);
-        hFragment.setArguments(bundle);
-        fragment = hFragment;
-
+        setUpHomeFrag();
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, fragment).commit();
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.nav_home:
-                    hFragment = new HomeFragment();
-                    bundle.putParcelableArrayList("films", films);
-                    hFragment.setArguments(bundle);
-                    hFragment.setFavorites(favorFilms);
-                    fragment = hFragment;
+                    setUpHomeFrag();
                     break;
                 case R.id.nav_favorite:
                     fragment = new FavoriteFragment();
                     favorFilms = hFragment.getFavorites();
                     bundle.putParcelableArrayList("favor", favorFilms);
-                    Log.d("TAG", "onCreate: "+bundle2String());
                     fragment.setArguments(bundle);
                     break;
             }
@@ -93,6 +84,13 @@ public class MainActivity extends AppCompatActivity {
         fab();
     }
 
+    private void setUpHomeFrag(){
+        hFragment = new HomeFragment();
+        bundle.putParcelableArrayList("films", films);
+        hFragment.setArguments(bundle);
+        hFragment.setFavorites(favorFilms);
+        fragment = hFragment;
+    }
 
     private void fab() {
         fabMore = findViewById(R.id.fab_more);
@@ -110,32 +108,20 @@ public class MainActivity extends AppCompatActivity {
 
         fabAcs.setOnClickListener(view -> {
             ((FilmsViewInterface) fragment).changeDesc();
-            Log.d("1111111111111111111111", "fab: "+fragment);
-            try{
             fabAcs.setClickable(!isDesc);
             fabDesc.setClickable(isDesc);
             isDesc = !isDesc;
             fabAcs.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d3d3d3")));
-            fabDesc.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FC94AF")));}
-            catch(Exception e){
-                Log.d("@@@@@@@@@@@@@@@@@@@@@@", "fab: "+e);
-            }
+            fabDesc.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FC94AF")));
         });
         fabDesc.setOnClickListener(
-
         view -> {
-            Log.d("1111111111111111111111", "fab: "+fragment);
             ((FilmsViewInterface) fragment).changeDesc();
-            try{
             fabAcs.setClickable(!isDesc);
             fabDesc.setClickable(isDesc);
             isDesc = !isDesc;
             fabDesc.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#d3d3d3")));
             fabAcs.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FC94AF")));
-
-            }catch(Exception e){
-                Log.d("@@@@@@@@@@@@@@@@@@@@@@", "fab: "+e);
-            }
         });
     }
 
@@ -150,11 +136,12 @@ public class MainActivity extends AppCompatActivity {
                 if (result.getResultCode() == Activity.RESULT_OK) {
                     Intent intent = result.getData();
                     if (intent!=null) {
+                        Log.d("1111111111", ": ");
                         int recentClick = ((FilmsViewInterface) fragment).getRecentClick();
                         boolean isFavor = intent.getBooleanExtra("ISFAVOR", false);
                         Films film = films.get(recentClick);
                         film.setFavor(isFavor);
-                        if(isFavor&& !favorFilms.contains(film)) {
+                        if(isFavor && !favorFilms.contains(film)) {
                             favorFilms.add(film);
                             bundle.putParcelableArrayList("favor", favorFilms);
                         }
@@ -164,7 +151,6 @@ public class MainActivity extends AppCompatActivity {
                         else if (fragment.getClass() == FavoriteFragment.class){
                             if(!isFavor) {
                                 favorFilms.remove(recentClick);
-                                Log.d("TAG", "dux2");
                                 bundle.putParcelableArrayList("favor", favorFilms);
                                 ((FilmsViewInterface) fragment).getAdapter().notifyItemRemoved(recentClick);
                             }
@@ -202,13 +188,5 @@ public class MainActivity extends AppCompatActivity {
             films.add(new Films(name[i], description[i], filmsAva[i], Float.parseFloat(rating[i]), false, link[i]));
         }
         films.sort((a, b) -> Float.compare(b.getRating(), a.getRating()));
-    }
-
-    private StringBuilder bundle2String(){
-        StringBuilder temp= new StringBuilder();
-        for(String s: bundle.keySet()){
-            temp.append(s).append("     ");
-        }
-        return temp;
     }
 }

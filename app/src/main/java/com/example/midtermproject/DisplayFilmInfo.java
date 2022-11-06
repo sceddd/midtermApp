@@ -46,10 +46,8 @@ public class DisplayFilmInfo extends AppCompatActivity {
         heartClick.setColorFilter(isFavor? Color.parseColor("#FC94AF") :Color.parseColor("#FFFFFFFF"), PorterDuff.Mode.SRC_ATOP);
         heartClick.setOnClickListener(v->{
             isFavor = !isFavor;
-            Log.d("TAG", ""+isFavor);
             int color = isFavor? Color.parseColor("#FC94AF") :Color.parseColor("#FFFFFFFF");
             heartClick.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
-
         });
 
         String myUrl = "https://www.youtube.com/embed/"+link;

@@ -38,7 +38,6 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
         super.onViewCreated(view, savedInstanceState);
         favorFilms = getArguments()!=null?getArguments().getParcelableArrayList("favor"):null;
         RecyclerView recyclerview = view.findViewById(R.id.favRecycle);
-        Log.d("123",array2string(favorFilms));
         fVA = new FilmsViewAdapter(getContext(),favorFilms,this){
             @Override
             public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
@@ -55,7 +54,6 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favorite, container, false);
     }
 
@@ -70,9 +68,7 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
             intent.putExtra("AVA", favorFilms.get(pos).getFilmAva());
             intent.putExtra("LINK", favorFilms.get(pos).getLink());
             intent.putExtra("ISFAVOR", favorFilms.get(pos).isFavor());
-            Log.d("FavorFrag", "onClickView: "+pos +"     "+ favorFilms.get(pos).isFavor());
             ((MainActivity) requireActivity()).someActivityResultLauncher.launch(intent);
-
         }
     }
 
@@ -116,12 +112,5 @@ public class FavoriteFragment extends Fragment implements FilmsViewInterface{
                 getArguments().putParcelableArrayList("favor", favorFilms);
             fVA.notifyItemRemoved(pos);
         }
-    }
-    public String array2string(ArrayList<Films> films){
-        String ab = "";
-        for(Films i:films){
-            ab += i.toString() + "  ";
-        }
-        return ab;
     }
 }
